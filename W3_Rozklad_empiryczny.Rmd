@@ -1,6 +1,7 @@
 ---
 title: "1. Rozkład empiryczny"
 output: html_notebook
+format: gfm
 ---
 Rozkład empiryczny – sposób prezentacj:
 
