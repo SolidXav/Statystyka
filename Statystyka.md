@@ -2441,21 +2441,25 @@ osiągnięty, gdyby nie było wahań, a rozwój następował zgodnie z trendem
 
 ## Prognoza
 
-| Model addytywny | Model multiplikatywny |
-|:--:|:--:|
-| $$\displaystyle \hat{y}_{i}^{j*} = \hat{y}_{i}^{j} + Sk_{i}$$ | $$\displaystyle \hat{y}_{i}^{j*} = \hat{y}_{i}^{j} \cdot Mo_{i}$$ |
+**Model addytywny:**
+
+$$\hat{y}_{i}^{j*} = \hat{y}_{i}^{j} + Sk_{i}$$
+
+**Model multiplikatywny:**
+
+$$\hat{y}_{i}^{j*} = \hat{y}_{i}^{j} \cdot Mo_{i}$$
 
 ### Gdzie:
 
-**Wspólne oznaczenia:** $$\hat{y}_{i}^{j*}$$ – prognoza (oszacowanie)
-wartości zjawiska uwzględniająca wahania sezonowe, $$\hat{y}_{i}^{j}$$ –
+**Wspólne oznaczenia:** $\hat{y}_{i}^{j*}$ – prognoza (oszacowanie)
+wartości zjawiska uwzględniająca wahania sezonowe, $\hat{y}_{i}^{j}$ –
 oszacowanie wynikające z funkcji trendu.
 
-**Model addytywny:** $$Sk_{i}$$ – czysty addytywny wskaźnik sezonowości
+**Model addytywny:** $Sk_{i}$ – czysty addytywny wskaźnik sezonowości
 odpowiadający danemu podokresowi $i$ (wyrażony w jednostkach badanej
 cechy).
 
-**Model multiplikatywny:** $$Mo_{i}$$ – czysty multiplikatywny wskaźnik
+**Model multiplikatywny:** $Mo_{i}$ – czysty multiplikatywny wskaźnik
 sezonowości odpowiadający danemu podokresowi $i$ (wyrażony jako ułamek
 lub w %).
 
