@@ -2443,7 +2443,7 @@ osiągnięty, gdyby nie było wahań, a rozwój następował zgodnie z trendem
 
 | Model addytywny | Model multiplikatywny |
 |:--:|:--:|
-| $\displaystyle \hat{y}_{ij}^* = \hat{y}_{ij} + S_{ki}$ | $\displaystyle \hat{y}_{ij}^* = \hat{y}_{ij} \cdot M_{oi}$ |
+| $$\displaystyle \hat{y}_{ij}^* = \hat{y}_{ij} + S_{ki}$$ | $$\displaystyle \hat{y}_{ij}^* = \hat{y}_{ij} \cdot M_{oi}$$ |
 
 ### Gdzie:
 
