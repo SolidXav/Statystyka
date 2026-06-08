@@ -3020,67 +3020,67 @@ $$ I_w = I_p^L \cdot I_q^P = I_p^P \cdot I_q^L = I_p^F \cdot I_q^F $$
 Rozkład empiryczny – sposób prezentacj:
 
 Wczytaj zbiór przykład_oceny_w1 jako oceny
-```{r}
+``` r
 library(readxl)
 Komunikat ostrzegawczy:
 oceny <- read_excel("przykład_oceny_w1.xlsx")
 ```
 
 Liczebności absolutne: 
-```{r}
+``` r
 library(dplyr)
 tab1<-przykład_oceny_w1|>
   count(ocena_Xi)
 ```
 
 Liczebności względne:  
-```{r}
+``` r
 przykład_oceny_w1|>
   count(ocena_Xi)|>
   mutate(n_proc=n/sum(n))
 ```
 
 Liczebności absolutne skumulowane: 
-```{r}
+``` r
 przykład_oceny_w1|>
   count(ocena_Xi)|>
   mutate(n_proc=n/sum(n),cum=cumsum(n))
 ```
 
 Skumulowane liczebności względne – DYSTRYBUANTA EMPIRYCZNA:
-```{r}
+``` r
 przykład_oceny_w1|>
   count(ocena_Xi)|>
   mutate(n_proc=n/sum(n),cum=cumsum(n),cum_proc=cum/sum(n))
 ```
 
 Wykres kolumnowy:
-```{r}
+``` r
 library(ggplot2)
 przykład_oceny_w1|>
   ggplot(aes(ocena_Xi))+
   geom_bar()
 ```
-```{r}
+``` r
 table(Rossmann$czy_otwarty)
 otwarte<-Rossmann|>
   filter(czy_otwarty=="Tak")
 ```
 Histogram:
-```{r}
+``` r
 otwarte|>
   ggplot(aes(sprzedaz))+
   geom_histogram()
 ```
 szereg przedziałowy:
-```{r}
+``` r
 library(dplyr)
 tab2<-otwarte|>
   count(sprzedaz=cut(sprzedaz,c(-0.0001,1:20*2000),dig.lab = 5))
 tab2
 ```
 miary klasyczne dla danych surowych:
-```{r}
+``` r
 klasyczne<-function(x){
   N<-length(x)
   sr<-mean(x)
@@ -3094,15 +3094,15 @@ klasyczne<-function(x){
 ```
 
 Kompleksowa analiza strukury ocen:
-```{r}
+``` r
 klasyczne(przykład_oceny_w1$ocena_Xi)
 ```
 Kompleksowa analiza strukury sprzedaży:
-```{r}
+``` r
 klasyczne(otwarte$sprzedaz)
 ```
 miary klasyczne dla szeregu punktowego:
-```{r}
+``` r
 tab1
 klasyczne_punkt<-function(x,n){
   N<-sum(n)
@@ -3116,11 +3116,11 @@ klasyczne_punkt<-function(x,n){
 }
 ```
 Kompleksowa analiza strukury ocen:
-```{r}
+``` r
 cbind(klasyczne_punkt(tab1$ocena_Xi,tab1$n),klasyczne(przykład_oceny_w1$ocena_Xi))
 ```
 miary klasyczne dla szeregu przedziałowego:
-```{r}
+``` r
 library(stringr)
 mean(as.numeric(str_extract_all(tab2$sprzedaz,"[0-9.]+")[[1]]))
 srodki<-numeric(length(tab2$sprzedaz))
@@ -3130,7 +3130,7 @@ for(i in 1:length(tab2$sprzedaz)){
 srodki
 ```
 
-```{r}
+``` r
 
 klasyczne_przedz<-function(przedz,n){
   N<-sum(n)
@@ -3148,16 +3148,16 @@ klasyczne_przedz<-function(przedz,n){
 }
 ```
 
-```{r}
+``` r
 cbind(klasyczne(otwarte$sprzedaz),klasyczne_przedz(tab2$sprzedaz,tab2$n))
 ```
 kwartyle w próbie o wielkości podzielnej i niepodzielnej przez 4 w szeregu szczegółowym:
-```{r}
+``` r
 quantile(oceny20$ocena)
 quantile(oceny21$ocena)
 ```
 Dominanta:
-```{r}
+``` r
 library(ggplot2)
 oceny20|>
   ggplot(aes(ocena))+
@@ -3170,7 +3170,7 @@ oceny21|>
 
 
 miary pozycyjne dla danych surowych (funkcja):
-```{r}
+``` r
 pozycyjne<-function(x){
   Min=as.numeric(quantile(x)[1])
   Q1=as.numeric(quantile(x)[2])
@@ -3186,7 +3186,7 @@ pozycyjne<-function(x){
 ```
 
 Kompleksowa analiza strukury ocen przy użyciu miar pozycyjnych:
-```{r}
+``` r
 pozycyjne(oceny21$ocena)
 library(ggplot2)
 oceny21|>
@@ -3195,7 +3195,7 @@ oceny21|>
 ```
 
 Kompleksowa analiza strukury sprzedaży przy użyciu miar pozycyjnych:
-```{r}
+``` r
 otwarte|>
   ggplot(aes(sprzedaz))+
   geom_histogram()
@@ -3205,7 +3205,7 @@ pozycyjne(otwarte$sprzedaz)
 ```
 
 kwartyle w szeregu punktowym:
-```{r}
+``` r
 library(dplyr)
 tab3<-oceny21|>
   count(ocena)
@@ -3216,7 +3216,7 @@ quantile(oceny21$ocena)
 ```
 
 kwartyle w szeregu punktowym kiedy wybrane liczebności skumulowane są równe dokładnie 25%, 50% lub 75%:
-```{r}
+``` r
 tab4<-oceny20|>
   count(ocena)|>
   mutate(cum=cumsum(n),cum_proc=cumsum(n)/sum(n))
@@ -3226,7 +3226,7 @@ which(tab4$cum_proc>0.25)[1]
 ```
 
 miary pozycyjne dla szeregu punktowego:
-```{r}
+``` r
 pozycyjne_punkt<-function(x,n){
   Min=x[1]
   k=length(x)
@@ -3259,13 +3259,13 @@ pozycyjne_punkt<-function(x,n){
 ```
 
 Kompleksowa analiza strukury ocen:
-```{r}
+``` r
 cbind(pozycyjne(oceny21$ocena), pozycyjne_punkt(tab3$ocena,tab3$n))
 cbind(pozycyjne(oceny20$ocena), pozycyjne_punkt(tab4$ocena,tab4$n))
 cbind(pozycyjne(przykład_oceny_w1$ocena_Xi),pozycyjne_punkt(tab1$ocena_Xi,tab1$n))
 ```
 miary pozycyjne dla szeregu przedziałowego:
-```{r}
+``` r
 tab2<-otwarte|>
   count(sprzedaz=cut(sprzedaz,c(-0.0001,1:20*2000),dig.lab = 5))|>
   mutate(cum=cumsum(n),cum_proc=cumsum(n)/sum(n))
@@ -3273,7 +3273,7 @@ tab2
 
 ```
 funkcja:
-```{r}
+``` r
 pozycyjne_przedz<-function(przedz,n){
   library(stringr)
   N<-sum(n)
@@ -3302,11 +3302,11 @@ pozycyjne_przedz<-function(przedz,n){
 }
 ```
 
-```{r}
+``` r
 cbind(pozycyjne(otwarte$sprzedaz), pozycyjne_przedz(tab2$sprzedaz,tab2$n))
 ```
 Tablica kontyngencji zaliczenia pewnego egzaminu (Z/N) i płci (K/M).
-```{r}
+``` r
 egz<-cbind(c(100,130),c(70,200))
 colnames(egz)<-c("N","Z")
 rownames(egz)<-c("M","K")
@@ -3314,14 +3314,14 @@ egz
 ```
 
 Obliczanie liczebności teoretycznych i statystyki Chi2
-```{r}
+``` r
 library(TeachingDemos)
 chisq.detail(egz)
 chisq.test(egz,correct=F)$statistic
 ```
 
 Wybrane współczynniki kontyngencji:
-```{r}
+``` r
 library(DescTools)
 Phi(egz)
 sqrt(chisq.test(egz,correct=F)$statistic/sum(egz))
@@ -3331,7 +3331,7 @@ ContCoef(egz,correct = T)
 ```
 
 Zbadaj zależność pomiędzy typem sklepu Rossmann a jego asortymentem na dzień 1 stycznia 2014.
-```{r}
+``` r
 library(dplyr)
 Rossmann_01st<-Rossmann|>
   filter(data=="2014-01-01")|>
@@ -3343,7 +3343,7 @@ CramerV(tab5)
 ContCoef(tab5,correct = T)
 chisq.detail(tab5)
 ```
-```{r}
+``` r
 tab6<-table(Rossmann_01st$sklep_typ,Rossmann_01st$asortyment2)
 
 TschuprowT(tab6)
@@ -3354,7 +3354,7 @@ chisq.detail(t(tab6))
 
 
 Zbadaj zależność pomiędzy tym czy była promocja a liczbą klientów w skepie 1.
-```{r}
+``` r
 otwarty_1<-Rossmann|>
   filter(czy_otwarty=="Tak",sklep_id==1)
 Me<-median(otwarty_1$liczba_klientow)
@@ -3364,13 +3364,13 @@ CramerV(tab7)
 chisq.detail(tab7)
 ```
 Zależność pomiędzy liczbą klientów i sprzedażą w sklepie 1 na wykresie:
-```{r}
+``` r
 library(ggplot2)
 ggplot(otwarty_1,aes(liczba_klientow,sprzedaz))+geom_point()
 ```
 
 Kowariancja pomiędzy liczbą klientów i sprzedażą w sklepie 1:
-```{r}
+``` r
 cov(otwarty_1$liczba_klientow,otwarty_1$sprzedaz)
 library(dplyr)
 otwarty_1|>
@@ -3378,7 +3378,7 @@ otwarty_1|>
 ```
 
 Funkcja cov liczy kowariancję z lekko zmodyfikowanego wzoru, możemy obliczyć ją też ręcznie:
-```{r}
+``` r
 n<-dim(otwarty_1)[1]
 n
 otwarty_1|>
@@ -3386,20 +3386,20 @@ otwarty_1|>
 ```
 
 Współczynnik korelacji liniowej Peansona pomiędzy liczbą klientów i sprzedażą w sklepie 1:
-```{r}
+``` r
 otwarty_1|>
   summarise(r=cor(liczba_klientow,sprzedaz),Spearman=cor(liczba_klientow,sprzedaz,method = "spearman"))
 ```
 
 
 Wczytujemy oceny z zaliczenia i egzaminu z pliku dane_w7
-```{r}
+``` r
 library(readxl)
 oceny_w7 <- read_excel("dane_w7.xlsx")
 ```
 
 Rangi ocen z kolokium i egzaminu:
-```{r}
+``` r
 oceny_w7<-oceny_w7|>
   mutate(rank_x=rank(`ocena z zaliczenia x`),.after=`ocena z zaliczenia x`)|>
   mutate(rank_y=rank(`ocena z egzaminu y`),.after=`ocena z egzaminu y`)|>
@@ -3407,97 +3407,97 @@ oceny_w7<-oceny_w7|>
 ```
 
 Współczynnik rang Spearmana dla ocen z kolokwium i egzaminu:
-```{r}
+``` r
 oceny_w7|>
   summarise(Sperman1=cor(rank_x,rank_y),Sperman2=cor(`ocena z zaliczenia x`,`ocena z egzaminu y`,method = "spearman"),Pearson=cor(`ocena z zaliczenia x`,`ocena z egzaminu y`))
 ```
 
 Wczytujemy bezrobocie z pliku dane_w7
-```{r}
+``` r
 bezrobocie_w7 <- read_excel("dane_w7.xlsx", sheet = "bezrobocie")
 ```
 
 Korelacja całkowita pomiędzy bezrobociem a liczbą urodzeń:
-```{r}
+``` r
 bezrobocie_w7|>
   summarise(cor(bezrobotni,urodzenia))
 ```
 Korelacja cząstkowa pomiędzy bezrobociem a liczbą urodzeń (z wyłączeniem wpływu l. ludności):
-```{r}
+``` r
 library(ppcor)
 bezrobocie_w7|>
   summarise(pcor.test(bezrobotni,urodzenia,`ludność ogółem`))
 ```
 
 Wczytujemy dane dotyczące wody z pliku dane_w7
-```{r}
+``` r
 library(readxl)
 woda_w7 <- read_excel("dane_w7.xlsx", sheet = "woda")
 ```
 
 korelacja całkowita:
-```{r}
+``` r
 cor(woda_w7[,3:5])
 
 ```
 
 korelacja wieloraka:
-```{r}
+``` r
 R2<-summary(lm(ciepla~zimna+wegiel,data=woda_w7))$r.squared
 sqrt(R2)
 ```
 Zależność pomiędzy liczbą klientów i sprzedażą w sklepie 1 na wykresie:
-```{r}
+``` r
 library(ggplot2)
 ggplot(otwarty_1,aes(liczba_klientow,sprzedaz))+geom_point()+geom_smooth(method="lm",se=F)
 ```
 
 Utwórz model regresji liniowej w którym sprzedaż w sklepie 1 będzie wyjaśniana przy pomocy liczby klientów:
-```{r}
+``` r
 #names(otwarty_1)
 mod1<-lm(sprzedaz~liczba_klientow, data=otwarty_1)
 summary(mod1)
 ```
 
 Parametry strukturalne (współczynnik kierunkowy i wyraz wolny prostej):
-```{r}
+``` r
 summary(mod1)$coef[2,1]
 summary(mod1)$coef[1,1]
 ```
 
 Ocena jakości dopasowania modelu:
 Odchylenie standardowe składnika resztowego
-```{r}
+``` r
 summary(mod1)$sigma
 ```
 Współczynnik zmienności resztowej
-```{r}
+``` r
 summary(mod1)$sigma/mean(otwarty_1$sprzedaz)
 ```
 współczynnk determinacji
-```{r}
+``` r
 summary(mod1)$r.squared
 ```
 współczynnk indeterminacji
-```{r}
+``` r
 1-summary(mod1)$r.squared
 ```
 
 
 Prognoza na podstawie modelu:
-```{r}
+``` r
 predict(mod1, data.frame(liczba_klientow=(10:15*100)))
 summary(mod1)$sigma
 ```
 Oceń wpływ ceny zimnej wody na cenę ciepłej wody (korzystając z danych ze zbioru woda).
-```{r}
+``` r
 mod3<-lm(ciepla~zimna,data=woda)
 summary(mod3)
 summary(mod3)$sigma/mean(woda$ciepla)
 ```
 
 Oceń wpływ ceny węgla na cenę ciepłej wody.
-```{r}
+``` r
 mod4<-lm(ciepla~wegiel,data=woda)
 summary(mod4)
 summary(mod4)$sigma/mean(woda$ciepla)
@@ -3505,7 +3505,7 @@ summary(mod4)$coef[,2]/abs(summary(mod4)$coef[,1])
 ```
 
 Oceń łącznie wpływ ceny zimnej wody i węgla na cenę ciepłej wody.
-```{r}
+``` r
 mod5<-lm(ciepla~zimna+wegiel,data=woda)
 summary(mod5)
 summary(mod5)$sigma/mean(woda$ciepla)
@@ -3514,7 +3514,7 @@ summary(mod5)$coef[,2]/abs(summary(mod5)$coef[,1])
 
 Zbadaj wpływ zmiennej x na zmienną y w zbiorze:
 1. f. kwadratowa z pliku przykład_regresja_nieliniowa_w9.xlsx
-```{r}
+``` r
 library(readxl)
 f_kw <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f. kwadratowa")
 library(ggplot2)
@@ -3525,7 +3525,7 @@ mod6<-lm(y~I(x^2)+x, data=f_kw)
 summary(mod6)
 ```
 2. wiel. 3 st. z pliku przykład_regresja_nieliniowa_w9.xlsx
-```{r}
+``` r
 wiel3 <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "wiel. 3 st.")
 ggplot(wiel3,aes(x,y))+geom_point()+geom_smooth(method="lm",se=F)+geom_smooth(method="lm",formula = y~I(x^3)+I(x^2)+x,color="red",se=F)
 mod7<-lm(y~I(x^3)+I(x^2)+x,data=wiel3)
@@ -3538,7 +3538,7 @@ a1<-summary(mod7)$coef[4,1]
 ggplot(wiel3,aes(x,y))+geom_point()+stat_function(fun=function(x) a0+a1*x+a2*x^2+a3*x^3,color="green")
 ```
 3. f. wykładnicza z pliku przykład_regresja_nieliniowa_w9.xlsx
-```{r}
+``` r
 f_wy <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f.wykładnicza")
 mod8<-lm(log(y)~x,data=f_wy)
 summary(mod8)
@@ -3547,20 +3547,20 @@ a1<-summary(mod8)$coef[2,1]
 ggplot(f_wy,aes(x,y))+geom_point()+stat_function(fun=function(x) exp(a0)*exp(a1*x))
 ```
 4. f. logarytmiczna z pliku przykład_regresja_nieliniowa_w9.xlsx
-```{r}
+``` r
 f_log <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f. logarytmiczna")
 mod9<-lm(y~log(x),data=f_log)
 summary(mod9)
 ggplot(f_log,aes(x,y))+geom_point()+geom_smooth(method = "lm",formula = y~log(x), se=F)
 ```
 5. f. potęgowa z pliku przykład_regresja_nieliniowa_w9.xlsx
-```{r}
+``` r
 f_pot <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f. potęgowa")
 mod10<-lm(log(y)~log(x),data=f_pot)
 summary(mod10)
 ```
 Wczytujemy dane o liczbie ofert pracy:
-```{r}
+``` r
 library(readxl)
 oferty_pracy_Poznan <- read_excel("oferty_pracy_Poznan.xlsx")
 View(oferty_pracy_Poznan)
@@ -3568,7 +3568,7 @@ library(dplyr)
 ```
 
 Szereg czsowy z liczbą ofert pracy w kolejnych miesiącach (klasy ts):
-```{r}
+``` r
 oferty_pracy_Poznan<-oferty_pracy_Poznan|>
   mutate(oferty_ts=ts(`Oferty pracy y`,start=2011,,frequency = 12))
 oferty_pracy_Poznan$oferty_ts
@@ -3576,7 +3576,7 @@ plot(oferty_pracy_Poznan$oferty_ts)
 ```
 
 Szereg czsowy z liczbą ofert pracy w kolejnych miesiącach (klasy tsibble):
-```{r}
+``` r
 library(tsibble)
 oferty_pracy_Poznan<-oferty_pracy_Poznan|>
   mutate(oferty_tsibble=as_tsibble(oferty_ts))
@@ -3585,7 +3585,7 @@ ggplot(oferty_pracy_Poznan,aes(oferty_tsibble$index,oferty_tsibble$value))+geom_
   labs(x="czas",y="oferty")
 ```
 Średnie ruchome z ofert pracy:
-```{r}
+``` r
 library(zoo)
 oferty_pracy_Poznan<-oferty_pracy_Poznan|>
   mutate(sr3=rollmean(oferty_ts,k=3,fill=NA))|>
@@ -3598,7 +3598,7 @@ ggplot(oferty_pracy_Poznan,aes(oferty_tsibble$index,oferty_tsibble$value))+geom_
 ```
 
 Przeciętne miesięczne wynagrodzenia brutto:
-```{r}
+``` r
 wynagrodzenie <- read_excel("wynagrodzenie_w10.xlsx", sheet = "DANE")
 wynagrodzenie<-wynagrodzenie|>
   mutate(wyn_ts=ts(`Przeciętne miesięczne wynagrodzenia brutto`,start=2002))|>
@@ -3607,21 +3607,21 @@ plot(wynagrodzenie$wyn_ts)
 ```
 
 Model trendu liniowego wyjaśniającego wynagrodzenie:
-```{r}
+``` r
 trend1<-lm(wyn_ts~t,data=wynagrodzenie)
 summary(trend1)
 summary(trend1)$sigma/mean(wynagrodzenie$wyn_ts)
 ```
 
 Prognoza:
-```{r}
+``` r
 nrow(wynagrodzenie)
 cbind(c(1:25),c(2002:2026))
 prognozy<-predict(trend1,data.frame(t=c(18:25)))
 ```
 
 Błąd prognozy:
-```{r}
+``` r
 T<-data.frame(t=c(18:25))
 bl<-summary(trend1)$sigma*sqrt(1+1/nrow(wynagrodzenie)+(T-mean(wynagrodzenie$t))^2/sum((wynagrodzenie$t-mean(wynagrodzenie$t))^2))
 cbind(c(2019:2026),prognozy,bl)
