@@ -2438,3 +2438,1984 @@ osiągnięty, gdyby nie było wahań, a rozwój następował zgodnie z trendem
 (punktem odniesienia jest 1).
 
 ------------------------------------------------------------------------
+
+## Prognoza
+
+| Model addytywny | Model multiplikatywny |
+|:--:|:--:|
+| $$\displaystyle \hat{y}_{i}^{j*} = \hat{y}_{i}^{j} + Sk_{i}$$ | $$\displaystyle \hat{y}_{i}^{j*} = \hat{y}_{i}^{j} \cdot Mo_{i}$$ |
+
+### Gdzie:
+
+**Wspólne oznaczenia:** $$\hat{y}_{i}^{j*}$$ – prognoza (oszacowanie)
+wartości zjawiska uwzględniająca wahania sezonowe, $$\hat{y}_{i}^{j}$$ –
+oszacowanie wynikające z funkcji trendu.
+
+**Model addytywny:** $$Sk_{i}$$ – czysty addytywny wskaźnik sezonowości
+odpowiadający danemu podokresowi $i$ (wyrażony w jednostkach badanej
+cechy).
+
+**Model multiplikatywny:** $Mo_{i}$ – czysty multiplikatywny wskaźnik
+sezonowości odpowiadający danemu podokresowi $i$ (wyrażony jako ułamek
+lub w %).
+
+**Wyjaśnienie logiki prognozowania:** **Model addytywny:** Dokonując
+oszacowania cechy $y$, do oszacowania wynikającego z funkcji trendu
+dodajemy czysty wskaźnik sezonowości odpowiadający danemu podokresowi
+sezonowości. **Model multiplikatywny:** Dokonując oszacowania cechy $y$,
+oszacowanie wynikające z funkcji trendu mnożymy przez czysty wskaźnik
+sezonowości odpowiadający danemu podokresowi sezonowości.
+
+------------------------------------------------------------------------
+
+## Błąd prognozy
+
+Obliczając odchylenie standardowe składnika resztowego, uwzględniamy
+oszacowania teoretyczne wyznaczone z uwzględnieniem sezonowości
+($\hat{y}_{i}^{j*}$):
+
+$$s(e_{i}) = \sqrt{\frac{\sum_{i=1}^{n}(y_{i}^{j} - \hat{y}_{i}^{j*})^{2}}{n - 2}}$$
+
+Właściwy **błąd prognozy ex ante** dla momentu prognozy $T$ obliczamy z
+wzoru:
+
+$$s(\hat{y}_{T}^{j*}) = s(e_{i}) \sqrt{1 + \frac{1}{n} + \frac{(T - \bar{t})^{2}}{\sum_{l=1}^{n}(t_{i} - \bar{t})^{2}}}$$
+
+### Gdzie:
+
+$s(e_{i})$ – odchylenie standardowe składnika resztowego (wariancja
+resztowa z uwzględnieniem sezonowości), $s(\hat{y}_{T}^{j*})$ – błąd
+prognozy ex ante dla okresu $T$, $y_{i}^{j}$ – empiryczna wartość cechy,
+$\hat{y}_{i}^{j*}$ – teoretyczna prognoza z uwzględnieniem sezonowości,
+$n$ – liczba analizowanych okresów, $T$ – numer okresu, dla którego
+stawiana jest prognoza, $t_i$ – zmienna czasowa (numery okresów od $1$
+do $n$), $\bar{t}$ – średnia wartość czasu.
+
+------------------------------------------------------------------------
+
+## Błąd prognozy
+
+Obliczając odchylenie standardowe składnika resztowego uwzględniamy
+wyliczone wcześniej oszacowania uwzględniające sezonowość
+($\hat{y}_t^*$):
+
+$$ s(e_t) = \sqrt{\frac{\sum_{t=1}^{n} (y_t - \hat{y}_t^*)^2}{n - 2}} $$
+
+### Gdzie:
+
+$s(e_t)$ – odchylenie standardowe składnika resztowego, $y_t$ –
+empiryczna wartość cechy dla $t$-tej obserwacji (gdzie $t$ jest ciągłym
+wskaźnikiem czasu w całym szeregu), $\hat{y}_t^*$ – teoretyczna prognoza
+z uwzględnieniem sezonowości dla $t$-tej obserwacji, $n$ – całkowita
+liczba badanych okresów (całkowita długość szeregu czasowego).
+
+**Błąd prognozy dla przyszłego okresu $T$:**
+
+$$ s(\hat{y}_T^*) = s(e_t) \sqrt{1 + \frac{1}{n} + \frac{(T - \bar{t})^2}{\sum_{t=1}^{n} (t_t - \bar{t})^2}} $$
+
+### Gdzie:
+
+$s(\hat{y}_T^*)$ – błąd prognozy dla przyszłego okresu $T$, $s(e_t)$ –
+odchylenie standardowe składnika resztowego uwzględniające sezonowość,
+$n$ – całkowita liczba znanych okresów uwzględnionych w modelu, $T$ –
+numer przyszłego okresu, na który stawiana jest prognoza, $\bar{t}$ –
+średnia arytmetyczna z numerów badanych okresów w modelu, $t_t$ –
+zmienna czasowa badanej $t$-tej obserwacji (kolejne numery
+$1, 2, \dots, n$).
+
+## Analiza dynamiki
+
+- **Cel:** analiza rozwoju zjawiska w czasie.
+- **Metody:**
+  - tendencji rozwojowej,
+  - analizy sezonowości,
+  - indeksowe.
+
+------------------------------------------------------------------------
+
+## Przyrosty absolutne
+
+- Kolejne wyrazy szeregu dynamicznego oznaczymy jako:
+  $y_1, y_2, \dots, y_n$.
+- Odejmowanie dwóch wielkości liczbowych daje w wyniku dodatni lub
+  ujemny przyrost absolutny (bezwzględny).
+- Przyrosty absolutne informują o tym, o ile jednostek wzrósł (znak
+  plus) lub zmalał (znak minus) poziom badanego zjawiska w okresie
+  (momencie) badanym w porównaniu z okresem (momentem) przyjętym za
+  podstawę.
+- Przyrosty absolutne są wyrażone w tych samych jednostkach miary co
+  badane zjawisko.
+
+| Przyrosty jednopodstawowe | Przyrosty łańcuchowe |
+|:--:|:--:|
+| $\displaystyle \Delta_{i/k} = y_i - y_k$ | $\displaystyle \Delta_{i/i-1} = y_i - y_{i-1}$ |
+
+### Gdzie:
+
+$\Delta_{i/k}$ – przyrost absolutny jednopodstawowy, $\Delta_{i/i-1}$ –
+przyrost absolutny łańcuchowy, $y_i$ – poziom zjawiska w okresie badanym
+$i$, $y_k$ – poziom zjawiska w okresie bazowym $k$, $y_{i-1}$ – poziom
+zjawiska w okresie bezpośrednio poprzedzającym badany okres $i$, $k$ –
+numer okresu bazowego (wybór okresu bazowego jest arbitralny), $i$ –
+numer okresu badanego.
+
+*(Uwaga: Przyrosty jednopodstawowe obliczane są w stosunku do jednego
+okresu bazowego, natomiast łańcuchowe w stosunku do okresu
+poprzedzającego dany okres).*
+
+------------------------------------------------------------------------
+
+## Przyrosty względne
+
+- Iloraz przyrostów absolutnych zjawiska i jego poziomu w okresie
+  (momencie) przyjętym za podstawę porównań nazywamy przyrostem
+  względnym.
+- Przyrosty względne interpretujemy w procentach.
+- Informują o ile wyższy lub niższy jest poziom badanego zjawiska w
+  danym okresie w stosunku do okresu przyjętego za podstawę.
+
+| Przyrosty względne jednopodstawowe | Przyrosty względne łańcuchowe |
+|:--:|:--:|
+| $\displaystyle w_{i/k} = \frac{y_i - y_k}{y_k}$ | $\displaystyle w_{i/i-1} = \frac{y_i - y_{i-1}}{y_{i-1}}$ |
+
+### Gdzie:
+
+- $w_{i/k}$ – przyrost względny jednopodstawowy,
+- $w_{i/i-1}$ – przyrost względny łańcuchowy,
+- $y_i$ – poziom zjawiska w okresie badanym $i$,
+- $y_k$ – poziom zjawiska w okresie bazowym $k$ (wybór arbitralny),
+- $y_{i-1}$ – poziom zjawiska w okresie poprzedzającym badany okres $i$.
+
+------------------------------------------------------------------------
+
+## Indeksy dynamiki
+
+- Indeksem dynamiki nazywamy każdą liczbę względną powstałą przez
+  podzielenie wielkości badanego zjawiska w okresie badanym
+  (sprawozdawczym) przez wielkość tego zjawiska w jakimś momencie w
+  przeszłości – tzw. okresie referencyjnym.
+- Indeksy dynamiki można interpretować w procentach.
+
+### Interpretacja wartości indeksu dynamiki:
+
+- Jeżeli indeks przyjmie wartość z przedziału od $0$ do $1$ ($< 100%$),
+  świadczy to o **spadku** poziomu zjawiska w okresie badanym w stosunku
+  do okresu podstawowego.
+- Większa od $1$ (lub od $100%$) wartość indeksu informuje o
+  **wzroście** poziomu zjawiska w okresie badanym w porównaniu z okresem
+  podstawowym.
+- Indeks równy $1$ oznacza, że poziomy zjawiska w okresach badanym i
+  podstawowym są **takie same**.
+
+| Indeksy jednopodstawowe | Indeksy łańcuchowe |
+|:--:|:--:|
+| $\displaystyle i_{i/k} = \frac{y_i}{y_k}$ | $\displaystyle i_{i/i-1} = \frac{y_i}{y_{i-1}}$ |
+
+### Gdzie:
+
+$i_{i/k}$ – indeks dynamiki jednopodstawowy, $i_{i/i-1}$ – indeks
+dynamiki łańcuchowy, $y_i$ – poziom zjawiska w okresie badanym $i$,
+$y_k$ – poziom zjawiska w okresie bazowym $k$, $y_{i-1}$ – poziom
+zjawiska w okresie poprzedzającym badany okres $i$.
+
+------------------------------------------------------------------------
+
+## Indeksy dynamiki a przyrosty względne
+
+Między przyrostami względnymi a indeksami istnieje ścisły związek:
+
+1.  Indeksy jednopodstawowe można otrzymać z przyrostów względnych o
+    podstawie stałej poprzez dodanie jedności.
+2.  Indeksy łańcuchowe można otrzymać z przyrostów względnych
+    łańcuchowych poprzez dodanie jedności.
+
+**Dowód i wzory obliczeniowe:**
+
+Dla mierników jednopodstawowych:
+$w_{i/k} = \frac{y_i - y_k}{y_k} = \frac{y_i}{y_k} - 1$ Zatem:
+$i_{i/k} = w_{i/k} + 1$
+
+Dla mierników łańcuchowych:
+$w_{i/i-1} = \frac{y_i - y_{i-1}}{y_{i-1}} = \frac{y_i}{y_{i-1}} - 1$
+Zatem: $i_{i/i-1} = w_{i/i-1} + 1$
+
+### Gdzie:
+
+- $i_{i/k}$ – indeks jednopodstawowy,
+- $w_{i/k}$ – przyrost względny jednopodstawowy,
+- $i_{i/i-1}$ – indeks łańcuchowy,
+- $w_{i/i-1}$ – przyrost względny łańcuchowy.
+
+------------------------------------------------------------------------
+
+## Działania na indeksach dynamiki
+
+W praktyce badań statystycznych częściej wykorzystuje się indeksy
+dynamiki niż przyrosty względne. Na indeksach wygodniej jest bowiem
+dokonywać określonych przekształceń i działań algebraicznych.
+
+Działania, jakie mogą być dokonywane na indeksach to m.in.:
+
+- przekształcanie indeksów jednopodstawowych na łańcuchowe,
+- przekształcanie indeksów łańcuchowych na jednopodstawowe,
+- zmiana podstawy w szeregu indeksów jednopodstawowych.
+
+------------------------------------------------------------------------
+
+## Zamiana indeksów jednopodstawowych na łańcuchowe
+
+Zamiany indeksów jednopodstawowych na łańcuchowe dokonuje się poprzez
+dzielenie indeksów jednopodstawowych przez siebie. W praktyce indeksy
+łańcuchowe na podstawie indeksów jednopodstawowych liczymy tak samo jak
+zwykłe indeksy łańcuchowe, tylko zamiast wartości bezwzględnych
+podstawiamy wartości indeksów jednopodstawowych.
+
+$$ i_{i/i-1} = \frac{i_{i/k}}{i_{i-1/k}} $$
+
+### Gdzie:
+
+- $i_{i/i-1}$ – poszukiwany indeks łańcuchowy,
+- $i_{i/k}$ – indeks jednopodstawowy z okresu badanego $i$ względem bazy
+  $k$,
+- $i_{i-1/k}$ – indeks jednopodstawowy z okresu $i-1$ względem bazy $k$.
+
+------------------------------------------------------------------------
+
+## Zamiana indeksów łańcuchowych na jednopodstawowe
+
+Aby zmienić szereg z łańcuchowego na jednopodstawowy, musimy postępować
+w 4 krokach:
+
+1.  Indeks jednopodstawowy w okresie $k$ przyjętym za podstawę wynosi
+    $1$: $$ i_{k/k} = 1 $$
+2.  Indeks jednopodstawowy w okresie następującym bezpośrednio po
+    okresie przyjętym za podstawę jest taki sam jak indeks łańcuchowy:
+    $$ i_{k+1/k} = i_{k+1/k} $$
+3.  Dalsze indeksy jednopodstawowe po okresie przyjętym za podstawę
+    otrzymujemy, mnożąc wyznaczony indeks jednopodstawowy z okresu
+    wcześniejszego przez indeks łańcuchowy dla analizowanego okresu:
+    $$ i_{i/k} = i_{i-1/k} \cdot i_{i/i-1} $$
+4.  Indeksy jednopodstawowe **przed** okresem podstawowym są ilorazem
+    indeksu jednopodstawowego z okresu następnego oraz indeksu
+    łańcuchowego z okresu następnego:
+    $$ i_{i/k} = \frac{i_{i+1/k}}{i_{i+1/i}} $$
+
+### Gdzie:
+
+- $i_{i/k}$ – poszukiwany indeks jednopodstawowy dla okresu $i$,
+- $i_{i-1/k}$ – znany indeks jednopodstawowy z okresu poprzedzającego,
+- $i_{i/i-1}$ – indeks łańcuchowy okresu badanego,
+- $i_{i+1/k}$ – indeks jednopodstawowy z okresu następującego,
+- $i_{i+1/i}$ – indeks łańcuchowy z okresu następującego.
+
+------------------------------------------------------------------------
+
+## Zmiana podstawy w indeksach jednopodstawowych
+
+Zmiany podstawy w indeksach jednopodstawowych dokonuje się poprzez
+dzielenie poszczególnych indeksów przy danej podstawie przez indeks
+jednopodstawowy tego okresu, który przyjmuje się za nową podstawę.
+
+$$ i_{i/k'} = \frac{i_{i/k}}{i_{k'/k}} $$
+
+### Gdzie:
+
+- $i_{i/k'}$ – poszukiwany indeks jednopodstawowy przy nowej podstawie
+  $k'$,
+- $i_{i/k}$ – indeks jednopodstawowy w okresie badanym $i$ przy starej
+  podstawie $k$,
+- $i_{k'/k}$ – indeks jednopodstawowy okresu nowej bazy $k'$ przy starej
+  podstawie $k$.
+
+------------------------------------------------------------------------
+
+## Średnie tempo zmian
+
+Średnie tempo zmian służy do oceny zmian danego zjawiska w całym okresie
+objętym obserwacją. Średnie tempo zmian wyrażone w procentach określa,
+jaki jest przeciętny okresowy przyrost procentowy analizowanego zjawiska
+w badanym przedziale czasowym.
+
+$$ \bar{S} = \sqrt[n-1]{\prod_{t=2}^{n} i_{t/t-1}} = \sqrt[n-1]{i_{2/1} \cdot i_{3/2} \dots i_{n/n-1}} = \sqrt[n-1]{\frac{y_2}{y_1} \cdot \frac{y_3}{y_2} \dots \frac{y_n}{y_{n-1}}} = \sqrt[n-1]{\frac{y_n}{y_1}} $$
+
+### Gdzie:
+
+- $\bar{S}$ – średnie tempo zmian zjawiska,
+- $n$ – numer ostatniego okresu (całkowita liczba badanych okresów),
+- $\prod$ – iloczyn,
+- $i_{t/t-1}$ – łańcuchowe indeksy dynamiki w kolejnych okresach,
+- $y_n$ – wartość zjawiska w ostatnim okresie badanym,
+- $y_1$ – wartość zjawiska w pierwszym okresie badanym.
+
+------------------------------------------------------------------------
+
+## Prognoza na podstawie średniego tempa zmian
+
+Obliczone średnie tempo zmian można wykorzystać w celach
+prognostycznych:
+
+$$ y_T^P = y_n \cdot \bar{S}^{T-n} $$
+
+### Gdzie:
+
+- $y_T^P$ – prognozowana wartość zjawiska na przyszły okres $T$,
+- $y_n$ – empiryczna wartość zjawiska w ostatnim (najnowszym) badanym
+  okresie $n$,
+- $\bar{S}$ – średnie tempo zmian,
+- $T$ – numer okresu prognozowanego (w przyszłości),
+- $n$ – numer ostatniego zaobserwowanego okresu.
+
+### Własności i obostrzenia dla prognozy:
+
+- Przeprowadzenie szacunku jest poprawne **tylko wtedy**, jeżeli
+  dotychczasowy rozwój tej zmiennej był jednokierunkowy i nie podlegał
+  zbyt dużej zmienności.
+- Przy wykorzystaniu tej metody w statystyce **nie znamy** miary błędu
+  prognozy.
+
+## Indeksy agregatowe
+
+- **Indeks agregatowy** – wskaźnik tempa zmian zjawisk ekonomicznych
+  grupy towarów (ich cen, ilości oraz wartości), porównywanych w dwóch
+  okresach (dalej określanych jako okres bazowy i okres badany).
+
+------------------------------------------------------------------------
+
+## Indeksy indywidualne
+
+| Indeks indywidualny ceny | Indeks indywidualny ilości | Indeks indywidualny wartości |
+|:--:|:--:|:--:|
+| $\displaystyle i_p = \frac{p_1}{p_0}$ | $\displaystyle i_q = \frac{q_1}{q_0}$ | $\displaystyle i_w = \frac{p_1 \cdot q_1}{p_0 \cdot q_0}$ |
+
+### Gdzie:
+
+- $i_p$ – indeks indywidualny ceny,
+- $i_q$ – indeks indywidualny ilości,
+- $i_w$ – indeks indywidualny wartości,
+- $q_0$ – ilość w okresie bazowym,
+- $p_0$ – cena w okresie bazowym,
+- $q_1$ – ilość w okresie badanym,
+- $p_1$ – cena w okresie badanym.
+
+------------------------------------------------------------------------
+
+## Indeks agregatowy wartości
+
+$$ I_w = \frac{\sum p_1 \cdot q_1}{\sum p_0 \cdot q_0} $$
+
+### Gdzie:
+
+- $I_w$ – indeks agregatowy wartości,
+- $q_0$ – ilość w okresie bazowym,
+- $p_0$ – cena w okresie bazowym,
+- $q_1$ – ilość w okresie badanym,
+- $p_1$ – cena w okresie badanym.
+
+### Interpretacja:
+
+- Indeks agregatowy wartości informuje nas o zmianie łącznej wartości
+  wielu towarów od okresu bazowego do okresu badanego.
+- Indeks agregatowy wartości interpretujemy w procentach.
+- Jeżeli indeks przyjmie wartość z przedziału od $0$ do $1$ (inaczej
+  poniżej $100%$), świadczy to o spadku łącznej wartości wielu towarów w
+  okresie badanym w stosunku do okresu bazowego.
+- Wynik większy od $1$ (lub od $100%$) informuje o wzroście łącznej
+  wartości wielu towarów w okresie badanym w porównaniu z okresem
+  bazowym.
+- Indeks równy $1$ oznacza, że łączne wartości wielu towarów w okresach
+  badanym i bazowym są takie same.
+
+------------------------------------------------------------------------
+
+## Indeksy agregatowe cen (wzór ogólny)
+
+$$ I_p = \frac{\sum p_1 \cdot q_c}{\sum p_0 \cdot q_c} $$
+
+### Gdzie:
+
+- $I_p$ – ogólny indeks agregatowy cen,
+- $p_0$ – cena w okresie bazowym,
+- $p_1$ – cena w okresie badanym,
+- $q_c$ – wagi zależne od ilości poszczególnych produktów.
+
+------------------------------------------------------------------------
+
+## Indeks agregatowy cen Laspeyresa
+
+$$ I_p^L = \frac{\sum p_1 \cdot q_0}{\sum p_0 \cdot q_0} $$
+
+### Gdzie:
+
+- $I_p^L$ – indeks agregatowy cen Laspeyresa,
+- $p_0$ – cena w okresie bazowym,
+- $p_1$ – cena w okresie badanym,
+- $q_0$ – ilość w okresie bazowym.
+
+### Interpretacja:
+
+- Indeks agregatowy cen Laspeyresa informuje nas o łącznej zmianie cen
+  wielu towarów od okresu bazowego do okresu badanego, **przy założeniu
+  stałych ilości odpowiadających okresowi bazowemu**.
+- Indeks agregatowy cen Laspeyresa interpretujemy w procentach.
+- Jeżeli indeks przyjmie wartość z przedziału od $0$ do $1$ (inaczej
+  poniżej $100%$), świadczy to o spadku cen wielu towarów łącznie w
+  okresie badanym w stosunku do okresu bazowego, przy założeniu stałych
+  ilości odpowiadających okresowi bazowemu.
+- Wynik większy od $1$ (lub od $100\%$) informuje o wzroście cen wielu
+  towarów łącznie w okresie badanym w porównaniu z okresem bazowym, przy
+  założeniu stałych ilości odpowiadających okresowi bazowemu.
+
+------------------------------------------------------------------------
+
+## Indeks agregatowy cen Paaschego
+
+$$ I_p^P = \frac{\sum p_1 \cdot q_1}{\sum p_0 \cdot q_1} $$
+
+### Gdzie:
+
+- $I_p^P$ – indeks agregatowy cen Paaschego,
+- $p_0$ – cena w okresie bazowym,
+- $p_1$ – cena w okresie badanym,
+- $q_1$ – ilość w okresie badanym.
+
+### Interpretacja:
+
+- Indeks agregatowy cen Paaschego informuje nas o łącznej zmianie cen
+  wielu towarów od okresu bazowego do okresu badanego, **przy założeniu
+  stałych ilości odpowiadających okresowi badanemu**.
+- Indeks agregatowy cen Paaschego interpretujemy w procentach.
+- Jeżeli indeks przyjmie wartość z przedziału od $0$ do $1$ (inaczej
+  poniżej $100%$), świadczy to o spadku cen wielu towarów łącznie w
+  okresie badanym w stosunku do okresu bazowego, przy założeniu stałych
+  ilości odpowiadających okresowi badanemu.
+- Wynik większy od $1$ (lub od $100\%$) informuje o wzroście cen wielu
+  towarów łącznie w okresie badanym w porównaniu z okresem bazowym, przy
+  założeniu stałych ilości odpowiadających okresowi badanemu.
+
+------------------------------------------------------------------------
+
+## Indeksy agregatowe ilości (wzór ogólny)
+
+$$ I_q = \frac{\sum p_c \cdot q_1}{\sum p_c \cdot q_0} $$
+
+### Gdzie:
+
+- $I_q$ – ogólny indeks agregatowy ilości,
+- $q_0$ – ilość w okresie bazowym,
+- $q_1$ – ilość w okresie badanym,
+- $p_c$ – wagi zależne od cen poszczególnych produktów.
+
+------------------------------------------------------------------------
+
+## Indeks agregatowy ilości Laspeyresa
+
+$$ I_q^L = \frac{\sum p_0 \cdot q_1}{\sum p_0 \cdot q_0} $$
+
+### Gdzie:
+
+- $I_q^L$ – indeks agregatowy ilości Laspeyresa,
+- $q_0$ – ilość w okresie bazowym,
+- $q_1$ – ilość w okresie badanym,
+- $p_0$ – cena w okresie bazowym.
+
+### Interpretacja:
+
+- Indeks agregatowy ilości Laspeyresa informuje nas o łącznej zmianie
+  ilości wielu towarów od okresu bazowego do okresu badanego, **przy
+  założeniu stałych cen odpowiadających okresowi bazowemu**.
+- Indeks agregatowy ilości Laspeyresa interpretujemy w procentach.
+- Jeżeli indeks przyjmie wartość z przedziału od $0$ do $1$ (inaczej
+  poniżej $100%$), świadczy to o spadku ilości wielu towarów łącznie w
+  okresie badanym w stosunku do okresu bazowego, przy założeniu stałych
+  cen odpowiadających okresowi bazowemu.
+- Wynik większy od $1$ (lub od $100\%$) informuje o wzroście ilości
+  (błąd w oryginale: “cen”) wielu towarów łącznie w okresie badanym w
+  porównaniu z okresem bazowym, przy założeniu stałych cen
+  odpowiadających okresowi bazowemu.
+
+------------------------------------------------------------------------
+
+## Indeks agregatowy ilości Paaschego
+
+$$ I_q^P = \frac{\sum p_1 \cdot q_1}{\sum p_1 \cdot q_0} $$
+
+### Gdzie:
+
+- $I_q^P$ – indeks agregatowy ilości Paaschego,
+- $q_0$ – ilość w okresie bazowym,
+- $q_1$ – ilość w okresie badanym,
+- $p_1$ – cena w okresie badanym.
+
+### Interpretacja:
+
+- Indeks agregatowy ilości Paaschego informuje nas o łącznej zmianie
+  ilości wielu towarów od okresu bazowego do okresu badanego, **przy
+  założeniu stałych cen odpowiadających okresowi badanemu**.
+- Indeks agregatowy ilości Paaschego interpretujemy w procentach.
+- Jeżeli indeks przyjmie wartość z przedziału od $0$ do $1$ (inaczej
+  poniżej $100%$), świadczy to o spadku ilości wielu towarów łącznie w
+  okresie badanym w stosunku do okresu bazowego, przy założeniu stałych
+  cen odpowiadających okresowi badanemu.
+- Wynik większy od $1$ (lub od $100\%$) informuje o wzroście ilości
+  (błąd w oryginale: “cen”) wielu towarów łącznie w okresie badanym w
+  porównaniu z okresem bazowym, przy założeniu stałych cen
+  odpowiadających okresowi badanemu.
+
+------------------------------------------------------------------------
+
+## Indeksy agregatowe Fishera
+
+Zgodnie ze sztuką statystyczną, indeksy Fishera stanowią średnią
+geometryczną z indeksów Laspeyresa i Paaschego.
+
+| Indeks agregatowy cen Fishera | Indeks agregatowy ilości Fishera |
+|:--:|:--:|
+| $\displaystyle I_p^F = \sqrt{I_p^L \cdot I_p^P}$ | $\displaystyle I_q^F = \sqrt{I_q^L \cdot I_q^P}$ |
+
+### Gdzie:
+
+- $I_p^F$ – indeks agregatowy cen Fishera,
+- $I_q^F$ – indeks agregatowy ilości Fishera,
+- $I_p^L$ – indeks agregatowy cen Laspeyresa,
+- $I_p^P$ – indeks agregatowy cen Paaschego,
+- $I_q^L$ – indeks agregatowy ilości Laspeyresa,
+- $I_q^P$ – indeks agregatowy ilości Paaschego.
+
+------------------------------------------------------------------------
+
+## Równość indeksowa
+
+Zależności pomiędzy indeksami agregatowymi wartości, cen i ilości można
+zapisać za pomocą równości indeksowych:
+
+$$ I_w = I_p^L \cdot I_q^P = I_p^P \cdot I_q^L = I_p^F \cdot I_q^F $$
+
+### Gdzie:
+
+- $I_w$ – indeks agregatowy wartości,
+- $I_p^L$ – indeks agregatowy cen Laspeyresa,
+- $I_q^P$ – indeks agregatowy ilości Paaschego,
+- $I_p^P$ – indeks agregatowy cen Paaschego,
+- $I_q^L$ – indeks agregatowy ilości Laspeyresa,
+- $I_p^F$ – indeks agregatowy cen Fishera,
+- $I_q^F$ – indeks agregatowy ilości Fishera.
+
+------------------------------------------------------------------------
+
+## Przykłady wskaźników giełdowych
+
+### The Dow Jones Industrial Average
+
+- Najstarszy indeks nieprzerwanie publikowany (od 26 maja 1896 roku).
+- Obejmuje $30$ największych i najbardziej znanych spółek amerykańskich.
+
+### Indeks WIG
+
+- Warszawski Indeks Giełdowy – indeks giełdowy, najdłużej notowany na
+  Giełdzie Papierów Wartościowych w Warszawie.
+- Obejmuje akcje spółek notowanych na rynku podstawowym, liczony jest od
+  16 kwietnia 1991 roku.
+
+
+Rozkład empiryczny – sposób prezentacj:
+
+Wczytaj zbiór przykład_oceny_w1 jako oceny
+```{r}
+library(readxl)
+Komunikat ostrzegawczy:
+oceny <- read_excel("przykład_oceny_w1.xlsx")
+```
+
+Liczebności absolutne: 
+```{r}
+library(dplyr)
+tab1<-przykład_oceny_w1|>
+  count(ocena_Xi)
+```
+
+Liczebności względne:  
+```{r}
+przykład_oceny_w1|>
+  count(ocena_Xi)|>
+  mutate(n_proc=n/sum(n))
+```
+
+Liczebności absolutne skumulowane: 
+```{r}
+przykład_oceny_w1|>
+  count(ocena_Xi)|>
+  mutate(n_proc=n/sum(n),cum=cumsum(n))
+```
+
+Skumulowane liczebności względne – DYSTRYBUANTA EMPIRYCZNA:
+```{r}
+przykład_oceny_w1|>
+  count(ocena_Xi)|>
+  mutate(n_proc=n/sum(n),cum=cumsum(n),cum_proc=cum/sum(n))
+```
+
+Wykres kolumnowy:
+```{r}
+library(ggplot2)
+przykład_oceny_w1|>
+  ggplot(aes(ocena_Xi))+
+  geom_bar()
+```
+```{r}
+table(Rossmann$czy_otwarty)
+otwarte<-Rossmann|>
+  filter(czy_otwarty=="Tak")
+```
+Histogram:
+```{r}
+otwarte|>
+  ggplot(aes(sprzedaz))+
+  geom_histogram()
+```
+szereg przedziałowy:
+```{r}
+library(dplyr)
+tab2<-otwarte|>
+  count(sprzedaz=cut(sprzedaz,c(-0.0001,1:20*2000),dig.lab = 5))
+tab2
+```
+miary klasyczne dla danych surowych:
+```{r}
+klasyczne<-function(x){
+  N<-length(x)
+  sr<-mean(x)
+  s2<-1/N*sum((x-sr)^2)
+  s<-sqrt(s2)
+  Vs<-s/sr
+  alfa3<-1/N*sum((x-sr)^3)/s^3
+  alfa4<-1/N*sum((x-sr)^4)/s^4
+  list(srednia=sr,wariancja=s2,odchylenie_standardowe=s,klas_wsp_zm=Vs,klas_wsp_asym=alfa3,kurtoza=alfa4)
+}
+```
+
+Kompleksowa analiza strukury ocen:
+```{r}
+klasyczne(przykład_oceny_w1$ocena_Xi)
+```
+Kompleksowa analiza strukury sprzedaży:
+```{r}
+klasyczne(otwarte$sprzedaz)
+```
+miary klasyczne dla szeregu punktowego:
+```{r}
+tab1
+klasyczne_punkt<-function(x,n){
+  N<-sum(n)
+  sr<-sum(x*n)/N
+  s2<-1/N*sum((x-sr)^2*n)
+  s<-sqrt(s2)
+  Vs<-s/sr
+  alfa3<-1/N*sum((x-sr)^3*n)/s^3
+  alfa4<-1/N*sum((x-sr)^4*n)/s^4
+  list(srednia=sr,wariancja=s2,odchylenie_standardowe=s,klas_wsp_zm=Vs,klas_wsp_asym=alfa3,kurtoza=alfa4)
+}
+```
+Kompleksowa analiza strukury ocen:
+```{r}
+cbind(klasyczne_punkt(tab1$ocena_Xi,tab1$n),klasyczne(przykład_oceny_w1$ocena_Xi))
+```
+miary klasyczne dla szeregu przedziałowego:
+```{r}
+library(stringr)
+mean(as.numeric(str_extract_all(tab2$sprzedaz,"[0-9.]+")[[1]]))
+srodki<-numeric(length(tab2$sprzedaz))
+for(i in 1:length(tab2$sprzedaz)){
+  srodki[i]<-mean(as.numeric(str_extract_all(tab2$sprzedaz,"[0-9.]+")[[i]]))
+}
+srodki
+```
+
+```{r}
+
+klasyczne_przedz<-function(przedz,n){
+  N<-sum(n)
+  srodki<-numeric(length(przedz))
+  for(i in 1:length(przedz)){
+    srodki[i]<-mean(as.numeric(str_extract_all(przedz,"[0-9.]+")[[i]]))
+    }
+  sr<-sum(srodki*n)/N
+  s2<-1/N*sum((srodki-sr)^2*n)
+  s<-sqrt(s2)
+  Vs<-s/sr
+  alfa3<-1/N*sum((srodki-sr)^3*n)/s^3
+  alfa4<-1/N*sum((srodki-sr)^4*n)/s^4
+  list(srednia=sr,wariancja=s2,odchylenie_standardowe=s,klas_wsp_zm=Vs,klas_wsp_asym=alfa3,kurtoza=alfa4)
+}
+```
+
+```{r}
+cbind(klasyczne(otwarte$sprzedaz),klasyczne_przedz(tab2$sprzedaz,tab2$n))
+```
+kwartyle w próbie o wielkości podzielnej i niepodzielnej przez 4 w szeregu szczegółowym:
+```{r}
+quantile(oceny20$ocena)
+quantile(oceny21$ocena)
+```
+Dominanta:
+```{r}
+library(ggplot2)
+oceny20|>
+  ggplot(aes(ocena))+
+  geom_bar()
+
+oceny21|>
+  ggplot(aes(ocena))+
+  geom_bar()
+```
+
+
+miary pozycyjne dla danych surowych (funkcja):
+```{r}
+pozycyjne<-function(x){
+  Min=as.numeric(quantile(x)[1])
+  Q1=as.numeric(quantile(x)[2])
+  Me=as.numeric(quantile(x)[3])
+  Q3=as.numeric(quantile(x)[4])
+  Max=as.numeric(quantile(x)[5])
+  Rozstęp=Max-Min
+  Odch_cw=(Q3-Q1)/2
+  Poz_ws_zm=Odch_cw/Me
+  Poz_wsp_asym=(Q1+Q3-2*Me)/(Q3-Q1)
+  list(Min=Min,Q1=Q1,Me=Me,Q3=Q3,Max=Max,Rozstęp=Rozstęp,Odch_cw=Odch_cw,Poz_ws_zm=Poz_ws_zm,Poz_wsp_asym=Poz_wsp_asym)
+}
+```
+
+Kompleksowa analiza strukury ocen przy użyciu miar pozycyjnych:
+```{r}
+pozycyjne(oceny21$ocena)
+library(ggplot2)
+oceny21|>
+  ggplot(aes(y=ocena))+
+  geom_boxplot()
+```
+
+Kompleksowa analiza strukury sprzedaży przy użyciu miar pozycyjnych:
+```{r}
+otwarte|>
+  ggplot(aes(sprzedaz))+
+  geom_histogram()
+
+pozycyjne(otwarte$sprzedaz)
+
+```
+
+kwartyle w szeregu punktowym:
+```{r}
+library(dplyr)
+tab3<-oceny21|>
+  count(ocena)
+oceny21|>
+  count(ocena)|>
+  mutate(cum=cumsum(n),cum_proc=cumsum(n)/sum(n))
+quantile(oceny21$ocena)
+```
+
+kwartyle w szeregu punktowym kiedy wybrane liczebności skumulowane są równe dokładnie 25%, 50% lub 75%:
+```{r}
+tab4<-oceny20|>
+  count(ocena)|>
+  mutate(cum=cumsum(n),cum_proc=cumsum(n)/sum(n))
+quantile(oceny20$ocena)
+tab4
+which(tab4$cum_proc>0.25)[1]
+```
+
+miary pozycyjne dla szeregu punktowego:
+```{r}
+pozycyjne_punkt<-function(x,n){
+  Min=x[1]
+  k=length(x)
+  Max=x[k]
+  cum_proc<-cumsum(n)/sum(n)
+  nQ1<-which(cum_proc>0.25)[1]
+  if(cum_proc[nQ1-1]==0.25){
+    Q1<-1/4*x[nQ1-1]+3/4*x[nQ1]
+  }else{
+    Q1<-x[nQ1]
+  }
+  nMe<-which(cum_proc>0.5)[1]
+  if(cum_proc[nMe-1]==0.5){
+    Me<-1/2*x[nMe-1]+1/2*x[nMe]
+  }else{
+    Me<-x[nMe]
+  }
+  nQ3<-which(cum_proc>0.75)[1]
+  if(cum_proc[nQ3-1]==0.75){
+    Q3<-3/4*x[nQ3-1]+1/4*x[nQ3]
+  }else{
+    Q3<-x[nQ3]
+  }
+  Rozstęp=Max-Min
+  Odch_cw=(Q3-Q1)/2
+  Poz_ws_zm=Odch_cw/Me
+  Poz_wsp_asym=(Q1+Q3-2*Me)/(Q3-Q1)
+  list(Min=Min,Q1=Q1,Me=Me,Q3=Q3,Max=Max,Rozstęp=Rozstęp,Odch_cw=Odch_cw,Poz_ws_zm=Poz_ws_zm,Poz_wsp_asym=Poz_wsp_asym)
+}
+```
+
+Kompleksowa analiza strukury ocen:
+```{r}
+cbind(pozycyjne(oceny21$ocena), pozycyjne_punkt(tab3$ocena,tab3$n))
+cbind(pozycyjne(oceny20$ocena), pozycyjne_punkt(tab4$ocena,tab4$n))
+cbind(pozycyjne(przykład_oceny_w1$ocena_Xi),pozycyjne_punkt(tab1$ocena_Xi,tab1$n))
+```
+miary pozycyjne dla szeregu przedziałowego:
+```{r}
+tab2<-otwarte|>
+  count(sprzedaz=cut(sprzedaz,c(-0.0001,1:20*2000),dig.lab = 5))|>
+  mutate(cum=cumsum(n),cum_proc=cumsum(n)/sum(n))
+tab2
+
+```
+funkcja:
+```{r}
+pozycyjne_przedz<-function(przedz,n){
+  library(stringr)
+  N<-sum(n)
+  poczatki<-numeric(length(przedz))
+  konce<-numeric(length(przedz))
+  for(i in 1:length(przedz)){
+    poczatki[i]<-as.numeric(str_extract_all(przedz,"[0-9.]+")[[i]])[1]
+    konce[i]<-as.numeric(str_extract_all(przedz,"[0-9.]+")[[i]])[2]
+  }
+  dl<-konce-poczatki
+  Min="Na"
+  Max="Na"
+  cum_proc<-cumsum(n)/sum(n)
+  cum<-cumsum(n)
+  nQ1<-which(cum_proc>0.25)[1]
+  Q1<-poczatki[nQ1]+(N/4-cum[nQ1-1])/n[nQ1]*dl[nQ1]
+  nMe<-which(cum_proc>0.5)[1]
+  Me<-poczatki[nMe]+(N/2-cum[nMe-1])/n[nMe]*dl[nMe]
+  nQ3<-which(cum_proc>0.75)[1]
+  Q3<-poczatki[nQ3]+(3*N/4-cum[nQ3-1])/n[nQ3]*dl[nQ3]
+  Rozstęp="Na"
+  Odch_cw=(Q3-Q1)/2
+  Poz_ws_zm=Odch_cw/Me
+  Poz_wsp_asym=(Q1+Q3-2*Me)/(Q3-Q1)
+  list(Min=Min,Q1=Q1,Me=Me,Q3=Q3,Max=Max,Rozstęp=Rozstęp,Odch_cw=Odch_cw,Poz_ws_zm=Poz_ws_zm,Poz_wsp_asym=Poz_wsp_asym)
+}
+```
+
+```{r}
+cbind(pozycyjne(otwarte$sprzedaz), pozycyjne_przedz(tab2$sprzedaz,tab2$n))
+```
+Tablica kontyngencji zaliczenia pewnego egzaminu (Z/N) i płci (K/M).
+```{r}
+egz<-cbind(c(100,130),c(70,200))
+colnames(egz)<-c("N","Z")
+rownames(egz)<-c("M","K")
+egz
+```
+
+Obliczanie liczebności teoretycznych i statystyki Chi2
+```{r}
+library(TeachingDemos)
+chisq.detail(egz)
+chisq.test(egz,correct=F)$statistic
+```
+
+Wybrane współczynniki kontyngencji:
+```{r}
+library(DescTools)
+Phi(egz)
+sqrt(chisq.test(egz,correct=F)$statistic/sum(egz))
+TschuprowT(egz)
+CramerV(egz)
+ContCoef(egz,correct = T)
+```
+
+Zbadaj zależność pomiędzy typem sklepu Rossmann a jego asortymentem na dzień 1 stycznia 2014.
+```{r}
+library(dplyr)
+Rossmann_01st<-Rossmann|>
+  filter(data=="2014-01-01")|>
+  mutate(asortyment2=if_else(sklep_asort=="Podstawowy","P","R+E"))
+tab5<-table(Rossmann_01st$sklep_typ,Rossmann_01st$sklep_asort)
+Phi(tab5)
+TschuprowT(tab5)
+CramerV(tab5)
+ContCoef(tab5,correct = T)
+chisq.detail(tab5)
+```
+```{r}
+tab6<-table(Rossmann_01st$sklep_typ,Rossmann_01st$asortyment2)
+
+TschuprowT(tab6)
+CramerV(tab6)
+ContCoef(tab6,correct = T)
+chisq.detail(t(tab6))
+```
+
+
+Zbadaj zależność pomiędzy tym czy była promocja a liczbą klientów w skepie 1.
+```{r}
+otwarty_1<-Rossmann|>
+  filter(czy_otwarty=="Tak",sklep_id==1)
+Me<-median(otwarty_1$liczba_klientow)
+tab7<-table(otwarty_1$czy_promocja,cut(otwarty_1$liczba_klientow,c(-Inf,Me,Inf)))
+tab7
+CramerV(tab7)
+chisq.detail(tab7)
+```
+Zależność pomiędzy liczbą klientów i sprzedażą w sklepie 1 na wykresie:
+```{r}
+library(ggplot2)
+ggplot(otwarty_1,aes(liczba_klientow,sprzedaz))+geom_point()
+```
+
+Kowariancja pomiędzy liczbą klientów i sprzedażą w sklepie 1:
+```{r}
+cov(otwarty_1$liczba_klientow,otwarty_1$sprzedaz)
+library(dplyr)
+otwarty_1|>
+  summarise(cov(sprzedaz,liczba_klientow))
+```
+
+Funkcja cov liczy kowariancję z lekko zmodyfikowanego wzoru, możemy obliczyć ją też ręcznie:
+```{r}
+n<-dim(otwarty_1)[1]
+n
+otwarty_1|>
+  summarise(cov=1/n*sum((liczba_klientow-mean(liczba_klientow))*(sprzedaz-mean(sprzedaz))))
+```
+
+Współczynnik korelacji liniowej Peansona pomiędzy liczbą klientów i sprzedażą w sklepie 1:
+```{r}
+otwarty_1|>
+  summarise(r=cor(liczba_klientow,sprzedaz),Spearman=cor(liczba_klientow,sprzedaz,method = "spearman"))
+```
+
+
+Wczytujemy oceny z zaliczenia i egzaminu z pliku dane_w7
+```{r}
+library(readxl)
+oceny_w7 <- read_excel("dane_w7.xlsx")
+```
+
+Rangi ocen z kolokium i egzaminu:
+```{r}
+oceny_w7<-oceny_w7|>
+  mutate(rank_x=rank(`ocena z zaliczenia x`),.after=`ocena z zaliczenia x`)|>
+  mutate(rank_y=rank(`ocena z egzaminu y`),.after=`ocena z egzaminu y`)|>
+  arrange(`ocena z egzaminu y`)
+```
+
+Współczynnik rang Spearmana dla ocen z kolokwium i egzaminu:
+```{r}
+oceny_w7|>
+  summarise(Sperman1=cor(rank_x,rank_y),Sperman2=cor(`ocena z zaliczenia x`,`ocena z egzaminu y`,method = "spearman"),Pearson=cor(`ocena z zaliczenia x`,`ocena z egzaminu y`))
+```
+
+Wczytujemy bezrobocie z pliku dane_w7
+```{r}
+bezrobocie_w7 <- read_excel("dane_w7.xlsx", sheet = "bezrobocie")
+```
+
+Korelacja całkowita pomiędzy bezrobociem a liczbą urodzeń:
+```{r}
+bezrobocie_w7|>
+  summarise(cor(bezrobotni,urodzenia))
+```
+Korelacja cząstkowa pomiędzy bezrobociem a liczbą urodzeń (z wyłączeniem wpływu l. ludności):
+```{r}
+library(ppcor)
+bezrobocie_w7|>
+  summarise(pcor.test(bezrobotni,urodzenia,`ludność ogółem`))
+```
+
+Wczytujemy dane dotyczące wody z pliku dane_w7
+```{r}
+library(readxl)
+woda_w7 <- read_excel("dane_w7.xlsx", sheet = "woda")
+```
+
+korelacja całkowita:
+```{r}
+cor(woda_w7[,3:5])
+
+```
+
+korelacja wieloraka:
+```{r}
+R2<-summary(lm(ciepla~zimna+wegiel,data=woda_w7))$r.squared
+sqrt(R2)
+```
+Zależność pomiędzy liczbą klientów i sprzedażą w sklepie 1 na wykresie:
+```{r}
+library(ggplot2)
+ggplot(otwarty_1,aes(liczba_klientow,sprzedaz))+geom_point()+geom_smooth(method="lm",se=F)
+```
+
+Utwórz model regresji liniowej w którym sprzedaż w sklepie 1 będzie wyjaśniana przy pomocy liczby klientów:
+```{r}
+#names(otwarty_1)
+mod1<-lm(sprzedaz~liczba_klientow, data=otwarty_1)
+summary(mod1)
+```
+
+Parametry strukturalne (współczynnik kierunkowy i wyraz wolny prostej):
+```{r}
+summary(mod1)$coef[2,1]
+summary(mod1)$coef[1,1]
+```
+
+Ocena jakości dopasowania modelu:
+Odchylenie standardowe składnika resztowego
+```{r}
+summary(mod1)$sigma
+```
+Współczynnik zmienności resztowej
+```{r}
+summary(mod1)$sigma/mean(otwarty_1$sprzedaz)
+```
+współczynnk determinacji
+```{r}
+summary(mod1)$r.squared
+```
+współczynnk indeterminacji
+```{r}
+1-summary(mod1)$r.squared
+```
+
+
+Prognoza na podstawie modelu:
+```{r}
+predict(mod1, data.frame(liczba_klientow=(10:15*100)))
+summary(mod1)$sigma
+```
+Oceń wpływ ceny zimnej wody na cenę ciepłej wody (korzystając z danych ze zbioru woda).
+```{r}
+mod3<-lm(ciepla~zimna,data=woda)
+summary(mod3)
+summary(mod3)$sigma/mean(woda$ciepla)
+```
+
+Oceń wpływ ceny węgla na cenę ciepłej wody.
+```{r}
+mod4<-lm(ciepla~wegiel,data=woda)
+summary(mod4)
+summary(mod4)$sigma/mean(woda$ciepla)
+summary(mod4)$coef[,2]/abs(summary(mod4)$coef[,1])
+```
+
+Oceń łącznie wpływ ceny zimnej wody i węgla na cenę ciepłej wody.
+```{r}
+mod5<-lm(ciepla~zimna+wegiel,data=woda)
+summary(mod5)
+summary(mod5)$sigma/mean(woda$ciepla)
+summary(mod5)$coef[,2]/abs(summary(mod5)$coef[,1])
+```
+
+Zbadaj wpływ zmiennej x na zmienną y w zbiorze:
+1. f. kwadratowa z pliku przykład_regresja_nieliniowa_w9.xlsx
+```{r}
+library(readxl)
+f_kw <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f. kwadratowa")
+library(ggplot2)
+ggplot(f_kw,aes(x,y))+geom_point()+geom_smooth(method="lm",se=F)+geom_smooth(method="lm",formula=y~I(x^2)+x,color="red",se=F)
+mod6_0<-lm(y~x, data=f_kw)
+summary(mod6_0)
+mod6<-lm(y~I(x^2)+x, data=f_kw)
+summary(mod6)
+```
+2. wiel. 3 st. z pliku przykład_regresja_nieliniowa_w9.xlsx
+```{r}
+wiel3 <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "wiel. 3 st.")
+ggplot(wiel3,aes(x,y))+geom_point()+geom_smooth(method="lm",se=F)+geom_smooth(method="lm",formula = y~I(x^3)+I(x^2)+x,color="red",se=F)
+mod7<-lm(y~I(x^3)+I(x^2)+x,data=wiel3)
+summary(mod7)
+a0<-summary(mod7)$coef[1,1]
+a3<-summary(mod7)$coef[2,1]
+a2<-summary(mod7)$coef[3,1]
+a1<-summary(mod7)$coef[4,1]
+
+ggplot(wiel3,aes(x,y))+geom_point()+stat_function(fun=function(x) a0+a1*x+a2*x^2+a3*x^3,color="green")
+```
+3. f. wykładnicza z pliku przykład_regresja_nieliniowa_w9.xlsx
+```{r}
+f_wy <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f.wykładnicza")
+mod8<-lm(log(y)~x,data=f_wy)
+summary(mod8)
+a0<-summary(mod8)$coef[1,1]
+a1<-summary(mod8)$coef[2,1]
+ggplot(f_wy,aes(x,y))+geom_point()+stat_function(fun=function(x) exp(a0)*exp(a1*x))
+```
+4. f. logarytmiczna z pliku przykład_regresja_nieliniowa_w9.xlsx
+```{r}
+f_log <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f. logarytmiczna")
+mod9<-lm(y~log(x),data=f_log)
+summary(mod9)
+ggplot(f_log,aes(x,y))+geom_point()+geom_smooth(method = "lm",formula = y~log(x), se=F)
+```
+5. f. potęgowa z pliku przykład_regresja_nieliniowa_w9.xlsx
+```{r}
+f_pot <- read_excel("przykład_regresja_nieliniowa_w9.xlsx", sheet = "f. potęgowa")
+mod10<-lm(log(y)~log(x),data=f_pot)
+summary(mod10)
+```
+Wczytujemy dane o liczbie ofert pracy:
+```{r}
+library(readxl)
+oferty_pracy_Poznan <- read_excel("oferty_pracy_Poznan.xlsx")
+View(oferty_pracy_Poznan)
+library(dplyr)
+```
+
+Szereg czsowy z liczbą ofert pracy w kolejnych miesiącach (klasy ts):
+```{r}
+oferty_pracy_Poznan<-oferty_pracy_Poznan|>
+  mutate(oferty_ts=ts(`Oferty pracy y`,start=2011,,frequency = 12))
+oferty_pracy_Poznan$oferty_ts
+plot(oferty_pracy_Poznan$oferty_ts)
+```
+
+Szereg czsowy z liczbą ofert pracy w kolejnych miesiącach (klasy tsibble):
+```{r}
+library(tsibble)
+oferty_pracy_Poznan<-oferty_pracy_Poznan|>
+  mutate(oferty_tsibble=as_tsibble(oferty_ts))
+library(ggplot2)
+ggplot(oferty_pracy_Poznan,aes(oferty_tsibble$index,oferty_tsibble$value))+geom_line()+
+  labs(x="czas",y="oferty")
+```
+Średnie ruchome z ofert pracy:
+```{r}
+library(zoo)
+oferty_pracy_Poznan<-oferty_pracy_Poznan|>
+  mutate(sr3=rollmean(oferty_ts,k=3,fill=NA))|>
+  mutate(sr12=rollmean(oferty_ts,k=12,fill=NA))
+
+ggplot(oferty_pracy_Poznan,aes(oferty_tsibble$index,oferty_tsibble$value))+geom_line()+
+  labs(x="czas",y="oferty")+
+  geom_line(aes(y=sr3),col="red")+
+  geom_line(aes(y=sr12),col="blue")
+```
+
+Przeciętne miesięczne wynagrodzenia brutto:
+```{r}
+wynagrodzenie <- read_excel("wynagrodzenie_w10.xlsx", sheet = "DANE")
+wynagrodzenie<-wynagrodzenie|>
+  mutate(wyn_ts=ts(`Przeciętne miesięczne wynagrodzenia brutto`,start=2002))|>
+  mutate(t=c(1:nrow(wynagrodzenie)))
+plot(wynagrodzenie$wyn_ts)
+```
+
+Model trendu liniowego wyjaśniającego wynagrodzenie:
+```{r}
+trend1<-lm(wyn_ts~t,data=wynagrodzenie)
+summary(trend1)
+summary(trend1)$sigma/mean(wynagrodzenie$wyn_ts)
+```
+
+Prognoza:
+```{r}
+nrow(wynagrodzenie)
+cbind(c(1:25),c(2002:2026))
+prognozy<-predict(trend1,data.frame(t=c(18:25)))
+```
+
+Błąd prognozy:
+```{r}
+T<-data.frame(t=c(18:25))
+bl<-summary(trend1)$sigma*sqrt(1+1/nrow(wynagrodzenie)+(T-mean(wynagrodzenie$t))^2/sum((wynagrodzenie$t-mean(wynagrodzenie$t))^2))
+cbind(c(2019:2026),prognozy,bl)
+```
+
+# 1. Rozkład empiryczny
+
+
+# Przygotowanie danych
+
+**Zadanie** Wczytaj dane z pliku rossmann-train.csv
+
+``` r
+rossmann <- read.csv("../dane-surowe/rossmann-train.csv")
+head(rossmann)
+```
+
+**Zadanie** Sprawdź strukturę wczytanego zbioru
+
+``` r
+str(rossmann)
+```
+
+``` r
+ncol(rossmann)
+nrow(rossmann)
+```
+
+``` r
+summary(rossmann)
+```
+
+``` r
+table(sapply(rossmann, class))
+rossmann |> sapply(class) |> table() # to samo co wyżej, ale w przetwarzaniu potokowym
+```
+
+**Zadanie** Wyznacz łączną sprzedaż poszczególnych sklepów w roku 2014.
+Ogranicz zbiór do tych sklepów, które były obserwowane przez cały rok.
+
+``` r
+rossmann_sale <- 
+  rossmann |>
+  filter(substr(Date, 1, 4) == "2014") |>
+  summarise(
+    Sales = sum(Sales), 
+    FirstDate = min(Date), 
+    LastDate = max(Date), 
+    .by = Store
+  ) |>
+  filter(FirstDate == "2014-01-01", LastDate == "2014-12-31") |>
+  select(-FirstDate, -LastDate) |>
+  arrange(Sales)
+
+rossmann_sale
+```
+
+**Zadanie** Zapisz wartości rocznej sprzedaży do wektora sales
+
+``` r
+sales <- rossmann_sale$Sales
+head(sales)
+tail(sales)
+```
+
+# Prezentacja danych
+
+**Zadanie** Zaprezentuj roczną sprzedaż za pomocą szeregu strukturalnego
+przedziałowego
+
+``` r
+table(cut(sales, breaks = seq(from = 500000, to = 8000000, by = 500000)))
+```
+
+**Zadanie** Przedstaw rozkład rocznej sprzedaży za pomocą histogramu
+
+``` r
+hist(sales/1000000, breaks = seq(0.5, 8, 0.5), xlab = "Roczna sprzedaż (mln. euro)", ylab = "Liczba sklepów", main = "Rozkład rocznej sprzedaży sklepów sieci Rossmann")
+```
+
+**Komentarz** Po prawej stronie rozkładu obserwowane są wartości
+odstające, co może świadczyć o asymetrii prawostronnej.
+
+# Analiza struktury
+
+## Miary klasyczne
+
+**Zadanie** Wyznacz średnią arytmetyczną
+
+``` r
+# ze wzoru
+
+sr <- sum(sales)/length(sales)
+sr
+```
+
+``` r
+sr <- mean(sales)
+sr
+```
+
+**Interpretacja** Roczna sprzedaż badanych sklepów wynosi przeciętnie
+2145342 euro.
+
+**Zadanie** Wyznacz wariancję (z populacji)
+
+$$S^2 = \frac{1}{n}\sum_{i=1}^n(x_i-\overline{x})^2$$
+
+``` r
+S2 <- 1/length(sales)*sum((sales-mean(sales))^2)
+S2
+```
+
+``` r
+var(sales) # wariancja z próby
+var(sales)*(length(sales)-1)/length(sales) # wariancja z populacji
+```
+
+**Interpretacja** Nie interpretujemy, ze względu na to, że wariancja
+wyrażona jest w euro do kwadratu.
+
+**Zadanie**Wyznacz odchylenie standardowe (z populacji)
+
+``` r
+S <- sqrt(S2)
+S
+```
+
+``` r
+sd(sales) # odchylenie standardowe z próby
+```
+
+**Interpretacja** Wartości rocznej sprzedaży odchylają się od średniej
+przeciętnie o 766840 euro
+
+**Zadanie** Wyznacz współczynnik zmienności
+
+``` r
+V <- S/sr
+V
+```
+
+**Interpretacja** Roczna sprzedaż charakteryzuje się umiarkowanym
+zróżnicowaniem (według przyjętych progów)
+
+**Zadanie** Napisz funkcję, która będzie wyznaczała k-ty moment cetralny
+i k-ty moment centralny standaryzowany
+$$m_k(x) = \frac{1}{n}\sum_{i=1}^n (x_i - \overline{x})^k$$
+$$\alpha_k(x) = \frac{m_k(x)}{S^k(x)}$$
+
+``` r
+m <- function(x, k) {
+  n <- length(x)
+  sr <- mean(x)
+  1/n*sum((x-sr)^k)
+}
+
+alfa <- function(x, k) {
+  m(x, k)/sqrt(m(x, 2))^k
+}
+```
+
+**Zadanie** Wyznacz współczynnik skośności i kurtozę rocznej sprzedaży
+
+``` r
+alfa3 <- alfa(sales, 3)
+alfa3
+```
+
+**Interpretacja** Sprzedaż badanych sklepów charakteryzuje się silną
+asymetrią prawostronną (po prawej stronie rozkładu obserwuje wartości
+odstające)
+
+``` r
+alfa4 <- alfa(sales, 4)
+alfa4
+```
+
+**Interpretacja** Sprzedaż charakteryzuje się rozkładem wysmukłym
+(leptokurtycznym); silniejsza koncentracja wokół wartości centralnych
+niż w rozkładzie normalnym; intensywność występowania wartośći
+odstających jest większa niż w rozkładzie normalnym (grube ogony)
+
+**Zadanie** Wyznacz medianę
+
+``` r
+Me <- median(sales)
+Me
+```
+
+50% sklepów ma sprzedaż poniżej 2050574 euro.
+
+**Zadanie** Napisz funkcję do wyznaczania kwantyli według algorytmu
+“n-1”. Któremu typowi w funkcji quantile odpowiada ten algorytm?
+
+``` r
+kwantyl <- function(x, p) {
+  n <- length(x)
+  q <- p*(n-1) + 1
+  k <- floor(q)
+  d <- q - k
+  Q <- (1-d)*x[k] + ifelse(k == n, 0, d*x[k+1]) # ifelse jest po to, aby p = 1 zwracało max jako wynik
+  return(Q)
+}
+
+kwantyl(1:12, p = c(0.25, 0.5, 0.75))
+quantile(1:12, probs = c(0.25, 0.5, 0.75), names = FALSE)
+```
+
+``` r
+# przypomnienie działania lapply/sapply
+lapply(1:9, sqrt)
+lapply(1:9, \(i) 10^i)
+
+sapply(1:9, sqrt)
+sapply(1:9, \(i) 10^i)
+```
+
+``` r
+kwantyl(1:11, p = c(0, 0.25, 0.5, 0.75, 1))
+sapply(1:9, \(t) quantile(1:11, type = t)) |> t()
+```
+
+Algorytm 7 (domyślny) odpowiada algorytmowi “n-1”, który z kolei
+odpowiada funkcji kwartyl.przedz.zamk w excelu.
+
+**Zadanie** Wyznacz pozostałe kwartyle za pomocą algorytmu “n-1”.
+
+``` r
+Q1 <- quantile(sales, 0.25, names = FALSE)
+Q3 <- quantile(sales, 0.75, names = FALSE)
+
+Q1
+Q3
+```
+
+25% sklepów ma sprzedaż poniżej 1622450 euro 75% sklepów ma sprzedaż
+poniżej 2483658 euro
+
+**Zadanie** Odchylenie ćwiartkowe i pozycyjny współczynnik zmienności
+
+``` r
+Q <- (Q3-Q1)/2
+VQ <- Q/Me
+
+Q
+VQ
+```
+
+Sprzedaż sklepów odchyla się od mediany przeciętnie o 430604 euro
+(połowa odchyla się o mniej, połowa o więcej).
+
+Można ocenić zróznicowanie sprzedaży jako umiarkowane.
+
+**Zadanie** Wyznacz pozycyjny współczynnik asymetrii.
+
+``` r
+AQ <- (Q1 + Q3 - 2*Me)/(2*Q)
+AQ
+```
+
+Wśród 50% środkowych sklepów rozkład sprzedaży jest bliski symetrycznemu
+
+**Zadanie** Czy wszystkie wartości są unikalne?
+
+``` r
+length(sales)
+length(unique(sales))
+```
+
+**Przykład**
+
+``` r
+x <- c(rep(5, 11), 11:20)
+x
+```
+
+``` r
+quantile(x)
+```
+
+**Zadanie** Wczytaj plik wynagrodzenia.xlsx. Przygotuj zestawienie z
+miarami analizy struktury (w wierszach przedsiębiorstwa, w kolumnach
+miary).
+
+średnia, odchylenie standardowe, współczynnik zmienności, współczynnik
+asymetrii, kurtoza, kwartyl 1., mediana, kwartyl 3., odchylenie
+ćwiartkowe, pozycyjny współczynnik zmienności, pozycyjny współczynnik
+asymetrii
+
+``` r
+wynagrodzenia <- readxl::read_xlsx("../dane-surowe/wynagrodzenia.xlsx")
+wynagrodzenia
+```
+
+``` r
+lapply(wynagrodzenia, min)
+```
+
+``` r
+analiza_struktury <- function(x) {
+  
+  xhat  <- mean(x)
+  S  <- sqrt(m(x, 2))
+  V <- S/xhat
+  alfa3 <- alfa(x, 3)
+  alfa4 <- alfa(x, 4)
+  
+  data.frame(xhat, S, V, alfa3, alfa4)
+}
+
+analiza_struktury(wynagrodzenia$`Wynagrodzenia-1`)
+```
+
+``` r
+wynik <- lapply(wynagrodzenia, analiza_struktury)
+wynik <- bind_rows(wynik, .id = "zmienna")
+wynik
+
+wynik <- lapply(wynagrodzenia, analiza_struktury)
+wynik <- bind_rows(wynik)
+rownames(wynik) <- colnames(wynagrodzenia)
+wynik
+```
+
+``` r
+wynagrodzenia |>
+  pivot_longer(cols = everything(), names_to = "zmienna", values_to = "wartosc") |>
+  summarise(
+    avg = mean(wartosc), 
+    S = sqrt(m(wartosc, 2)),
+    alfa3 = alfa(wartosc, 3),
+    alfa4 = alfa(wartosc, 4),
+    .by = zmienna)
+
+wynagrodzenia |>
+  pivot_longer(cols = everything(), names_to = "zmienna", values_to = "wartosc") |>
+  summarise(across(wartosc, list(avg = mean, S = \(x) sqrt(m(x, 2)))), .by = zmienna)
+```
+
+Wczytaj potrzebne pakiety
+
+``` r
+library(readxl)
+library(DescTools)
+```
+
+Usuń wszystkie obiekty
+
+``` r
+remove(list = ls())
+```
+
+Wczytaj dane z pliku bael.xlsx
+
+``` r
+bael <- read_xlsx("../dane-surowe/bael.xlsx")
+head(bael)
+```
+
+Skonstruuj tabelę kontyngencji dla poziomu wykształcenia (WYKSZ) i
+statusu na rynku pracy (KAT)
+
+``` r
+x <- bael$WYKSZ
+y <- bael$KAT
+```
+
+``` r
+# rozkład WYKSZ
+table(x)
+prop.table(table(x))
+```
+
+``` r
+# rozkład KAT
+table(y)
+prop.table(table(y))
+```
+
+``` r
+# łączny rozkład WYKSZ i KAT
+table(x, y) # tabela kontyngencji
+prop.table(table(x, y))
+prop.table(table(x, y), margin = 1)
+prop.table(table(x, y), margin = 2)
+```
+
+``` r
+mosaicplot(table(x,y), color = c("green", "red", "blue"))
+```
+
+Napisz funkcję do wyznaczania statystyki chi-kwadrat w oparciu o wektory
+x, y
+$$\chi^2 = \sum_{i=1}^w\sum_{j=1}^k \frac{(n_{ij}-\hat{n}_{ij})^2}{\hat{n}_{ij}}$$
+
+``` r
+chi2 <- function(x, y) {
+  
+  nij <- table(x,y)
+  ni. <- table(x)
+  n.j <- table(y)
+  n <- sum(nij)
+  nij_hat <- (ni. %*% t(n.j))/n
+  chi.kwadrat <- sum((nij - nij_hat)^2/nij_hat)
+  chi.kwadrat
+  
+}
+```
+
+``` r
+chi2(x, y)
+```
+
+Wyznacz wartość statystyki chi-kwadrat za pomocą funkcji chisq.test
+
+``` r
+test <- chisq.test(x = x, y = y)
+test$statistic
+test$observed # tabela kontyngencji - liczebności empiryczne
+test$expected # liczebności teoretyczne
+```
+
+Sprawdź własności liczebności teoretycznych
+
+``` r
+colSums(test$expected)
+rowSums(test$expected)
+#liczebności brzegowe odpowiadają obserwowanym 
+
+prop.table(test$expected, margin = 1)
+prop.table(test$expected, margin = 2)
+# takie same struktury wszystkich wierszy i wszystkich kolumn
+```
+
+Wyzna miary współzależności pomiędzy poziomem wykształcenia a statusem
+na rynku pracy
+$$T = \sqrt{\frac{\chi^2}{n\sqrt{(w-1)(k-1)}}}, \quad V =\sqrt{\frac{\chi^2}{n\cdot min(w-1, k-1)}}$$
+$$C = \sqrt{\frac{\chi^2}{\chi^2+n}}, \quad C_{kor} = \frac{C}{C_{max}}, \quad C_{max} = \frac{\sqrt{\frac{w-1}{w}}+\sqrt{\frac{k-1}{k}}}{2}$$
+
+``` r
+# ze wzoru
+chi2_value <- chi2(x, y)
+n <- length(x)
+w <- length(unique(x))
+k <- length(unique(y))
+
+T_Czuprow <- sqrt(chi2_value/(n*sqrt((w-1)*(k-1))))
+T_Czuprow
+
+V_Cramer <- sqrt(chi2_value/(n*min(w-1,k-1)))
+V_Cramer
+
+C_Pearson <- sqrt(chi2_value/(chi2_value + n))
+C_Pearson
+
+C_max <- (sqrt((w-1)/w)+sqrt((k-1)/k))/2
+C_max
+
+C_kor <- C_Pearson/C_max
+C_kor
+
+# Pomiędzy badanymi cechami występuje umiarkowana współzależność
+```
+
+``` r
+# za pomocą pakietu DescTools
+TschuprowT(x = x , y = y)
+CramerV(x = x, y = y)
+ContCoef(x = x, y = y)
+ContCoef(x = x, y = y, correct = TRUE)
+```
+
+Wczytaj pakiety
+
+``` r
+library(quantmod) # getSymbols
+library(dplyr)
+library(readxl)
+library(ppcor, include.only = "pcor")
+```
+
+Usuń wszystkie obiekty
+
+``` r
+remove(list = ls())
+```
+
+Pobierz ceny złota dla roku 2025
+
+``` r
+getSymbols("GC=F", src = "yahoo", from = "2025-11-01", to = "2025-12-31", auto.assign = FALSE)
+```
+
+Pobierz ceny zamknięcia najważniejszych surowców od
+01.11.2025-31.12.2025. Jako źródło wykorzystajcie “yahoo”. Wynikiem ma
+być ramka danych, gdzie w kolumnach będą poszczególne surowce.
+
+``` r
+symbole <- c("GC=F", "SI=F", "CL=F", "BZ=F", "NG=F", "HG=F", "PL=F", "PA=F", "ZW=F", "ZC=F", "ZS=F", "CC=F", "KC=F", "SB=F")
+
+nazwy <- c("Zloto", "Srebro", "Ropa_WTI", "Ropa_Brent", "Gaz_ziemny", "Miedz", "Platyna", "Pallad", "Pszenica", "Kukurydza", "Soja", "Kakao", "Kawa", "Cukier")
+
+close_list <- 
+  lapply(symbole, \(x) {
+    dane_x <- getSymbols(x, src = "yahoo", from = "2025-11-01", to = "2025-12-31", auto.assign = FALSE)
+    dane_x <- as.data.frame(dane_x)
+    dane_x$Date <- rownames(dane_x)
+    rownames(dane_x) <- NULL
+    dane_x <- dane_x[, c("Date", paste0(x, ".Close"))]
+    dane_x
+})
+
+close_df <- Reduce(merge , close_list)
+colnames(close_df)[-1] <- nazwy
+
+close_df
+```
+
+Zbadaj współzależność pomiędzy cenami złota i srebra
+
+``` r
+plot(x = close_df$Zloto, y = close_df$Srebro)
+```
+
+``` r
+# współczynnik korelacji liniowej Pearsona
+cor(x = close_df$Zloto, y = close_df$Srebro)
+```
+
+Komentarz: Pomiędzy cenami złota a cenami srebra obserwujemy bardzo
+silną dodatnią korelację liniową
+
+``` r
+# współczynnik korelacji rang Spearmana
+cor(x = close_df$Zloto, y = close_df$Srebro, method = "spearman")
+cor(x = rank(close_df$Zloto), y = rank(close_df$Srebro))
+```
+
+``` r
+# funkcja rank
+close_df$Zloto
+rank(close_df$Zloto)
+```
+
+Eksperyment 1: Dodaj do zestawu cen złota i srebra wartości odpowiednio
+8000 i 20.
+
+``` r
+zloto_outlier <- c(close_df$Zloto, 8000)
+srebro_outlier <- c(close_df$Srebro, 20)
+
+plot(zloto_outlier, srebro_outlier)
+
+cor(zloto_outlier, srebro_outlier)
+cor(zloto_outlier, srebro_outlier, method = "spearman")
+```
+
+Eksperyment 2: Wygeneruj dwa wektory z rozkładu normalnego N(1000, 10).
+Wyznacz współczynnik między tymi wektorami. Następnie dodaj wartość
+odstającą i ponownie wyznacz współczynniki korelacji.
+
+``` r
+set.seed(1234)
+
+x <- rnorm(50, 1000, 10)
+y <- rnorm(50, 1000, 10)
+
+plot(x, y)
+cor(x, y)
+cor(x, y, method = "spearman")
+
+x <- c(x, 100)
+y <- c(y, 100)
+
+plot(x, y)
+cor(x, y)
+cor(x, y, method = "spearman")
+```
+
+Zadanie: a) Pomiędz którą parą surowców występuje nasilniejsza
+współzależność liniowa b) Pomiędz którą parą surowców występuje
+nasłabsza współzależność liniowa c) Pomiędz którą parą surowców
+występuje nasilniejsza dodatnia współzależność liniowa d) Pomiędz którą
+parą surowców występuje nasilniejsza ujemna współzależność liniowa e) Z
+jakim surowcem jest najsilniej skorelowane złoto f) Z jakim surowcem
+jest najsłabiej skorelowane złoto
+
+``` r
+macierz_korelacji <- cor(close_df[,-1])
+diag(macierz_korelacji) <- NA
+macierz_korelacji
+```
+
+1)  
+
+``` r
+arrayInd(which.max(abs(macierz_korelacji)), .dim = dim(macierz_korelacji))
+```
+
+Odpowiedź: Najsilniejsza współzależność występuje między Ropa_WTI a
+Ropa_Brent
+
+2)  
+
+``` r
+arrayInd(which.min(abs(macierz_korelacji)), .dim = dim(macierz_korelacji))
+```
+
+Odpowiedź: Najsłabsza współzależność występuje między Pszenicą a Kakao
+
+4)  
+
+``` r
+macierz_korelacji_ujemne <- macierz_korelacji
+macierz_korelacji_ujemne[macierz_korelacji_ujemne >= 0] <- NA
+macierz_korelacji_ujemne
+
+arrayInd(which.max(abs(macierz_korelacji_ujemne)), .dim = dim(macierz_korelacji))
+```
+
+Odpowiedź: Najsilniejsza ujemna współzależność występuje między Kawą a
+Palladem
+
+Zadanie: Wczytaj dane z pliku samochody.xlsx. Pozostaw tylko samochody
+osobowe. Pozostaw tylko cechy ilościowe
+
+``` r
+samochody <- 
+  read_xlsx("../dane-surowe/samochody.xlsx") |>
+  filter(Typ == "osobowy") |>
+  select_if(is.numeric)
+
+samochody
+```
+
+Zadanie: Oceń współzależność pomiędzy pojemnością silnika a zużyciem
+paliwa uwzględniają wpływ wagi samochodu.
+
+``` r
+cor(samochody$Pojemnosc_silnika, samochody$Zuzycie_paliwa)
+```
+
+``` r
+pcor(x = select(samochody, Pojemnosc_silnika, Zuzycie_paliwa, Waga))
+```
+
+Uwzględniając wagę samochodu (przyjmując, że wszystkie samochody mają
+dokładnie taką samą wagę) korelacja pomiędzy pojemnością silnika a
+zużyciem paliwa jest słaba (cząstkowy współczynnik korelacji liniowej
+wynosi ok. 0,08).
+
+Zad. Wczytaj pakiety
+
+``` r
+library(readxl)
+library(dplyr)
+```
+
+Zad. Wczytaj dane z pliku samochody.xlsx. Pozostaw tylko samochody
+osobowe.
+
+``` r
+samochody <- 
+  read_xlsx("../dane-surowe/samochody.xlsx") |>
+  filter(Typ == "osobowy")
+
+samochody
+```
+
+Zad. Zbadaj współzależność pomiędzy mocą a ceną samochodu.
+
+``` r
+plot(x = samochody$Moc, y = samochody$Cena)
+```
+
+``` r
+cor(x = samochody$Moc, y = samochody$Cena)
+```
+
+Komentarz: Pomiędzy mocą a ceną obserwujemy silną dodatnią
+współzależność liniową.
+
+Zad. Zbuduj model regresji liniowej, w którym cena samochodów jest
+objaśniana za pomocą mocy samochodów. Zinterpretuj parametry modelu.
+
+``` r
+# Y - cena
+# X - moc 
+
+model <- lm(Cena ~ Moc, data = samochody)
+model
+```
+
+Interpretacja:
+
+współczynnik kierunkowy: Wraz ze wzrostem mocy samochodu o 1 KM cena
+samochodu wzrasta przeciętnie o 0.214 tys. dolarów
+
+wyraz wolny: samochodów o zerowej mocy kosztuje teoretycznie -11.994
+tys. dolarów (ta interpretacja nie ma sensu ekonomicznego/techniczego; w
+praktyce tego parametru się nie interpretuje)
+
+``` r
+model$coefficients[2] # współczynnik kierunkowy
+head(model$residuals) # kilka pierwszych reszt z modelu
+```
+
+Zad. Oceń dopasowanie modelu
+
+``` r
+model_sum <- summary(model)
+model_sum
+```
+
+``` r
+# odchylenie standardowe składnika resztowego
+
+model_sum$sigma
+
+# współczynnik zmienności składnika resztowego
+
+model_sum$sigma/mean(samochody$Cena)
+```
+
+Interpretacja:
+
+Teoretyczne wartości cen odchylają się od obserwowanych przeciętnie o
+8.178 tys. dolarów.
+
+Odchylenia teoretycznych wartości cen od obserwowanych stanowią
+przeciętnie 29,5% przeciętnego poziomu cen.
+
+``` r
+# współczynnik determinacji R-kwadrat
+
+model_sum$r.squared
+
+# współczynnik zbieżności (indeterminacji)
+
+1 - model_sum$r.squared
+```
+
+Interpretacja:
+
+Model tłumaczy 72,4% zmienności cen samochodów. Pozostałe 27,6% nie
+zostało wytłumaczonych.
+
+W praktyce wykorzystuje się tylko R^2
+
+``` r
+# błędy oszacowania parametrów modelu
+
+model_sum$coefficients[, 2]
+
+# względne błędy oszacowań parametrów
+
+model_sum$coefficients[, 2]/abs(model_sum$coefficients[, 1]) 
+```
+
+Interpretacja:
+
+V_a1 \< 0.5, stąd współczynnik kierunkowy istotnie różni się od zera
+(jest istotny statytycznie), moc istotnie wpływa na cenę samochodu
+
+V_a0 \< 0.5, stąd wyraz wolny jest istotny statystycznie; w praktyce
+ocenę istotności wyrazu wolnego raczej się pomija
+
+``` r
+# wartości p (p-value) testu istotności parametrów
+
+model_sum$coefficients[,4]
+```
+
+Komentarz: W praktyce do oceny istotności parametrów wykorzystuje się
+wartości p, parametr jako istotny uznaje się, gdy p-value jest mniejsze
+niż 0.05 (poziom istotności)
+
+Zad. Dokonaj prognozy/interpolacji ceny samochodu o mocy 500 KM
+
+``` r
+model$coefficients[1] + model$coefficients[2]*500
+```
+
+``` r
+# błąd prnogzy
+
+se <- model_sum$sigma
+n <- nrow(samochody)
+sr_x <- mean(samochody$Moc)
+s2_x <- var(samochody$Moc)
+
+se*sqrt(1+1/n+(500-sr_x)^2/(s2_x*(n-1)))
+```
+
+Interpretacja: Cena samochodu o mocy 500 KM teoretycznie wyniosłaby
+95.005 (+/- 9.087) tys. dolarów
