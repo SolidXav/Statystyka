@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD Viewer</title>
+<title>Statystyka</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 <script type="module">
@@ -58,7 +58,6 @@ window.MathJax = {
     --heading: #eef2ff;
     --code-bg: #1a1f2e;
     --math-color: #c4d4ff;
-    --sidebar-w: 260px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,18 +69,15 @@ window.MathJax = {
     font-weight: 300;
     min-height: 100vh;
     line-height: 1.75;
-    display: flex;
-    flex-direction: column;
   }
 
-  /* ── Header ── */
   header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
-    padding: 0.85rem 1.5rem;
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 200;
+    z-index: 100;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -94,192 +90,20 @@ window.MathJax = {
     color: var(--accent);
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    flex-shrink: 0;
   }
   .logo span { color: var(--accent2); }
 
   #doc-title {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     background: var(--surface2);
-    padding: 0.25rem 0.75rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-family: 'JetBrains Mono', monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 300px;
-  }
-
-  /* hamburger (mobile) */
-  #sidebar-toggle {
-    display: none;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-muted);
-    cursor: pointer;
-    padding: 0.35rem 0.55rem;
-    font-size: 1.1rem;
-    line-height: 1;
-    margin-left: auto;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  #sidebar-toggle:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* ── Layout ── */
-  .layout {
-    display: flex;
-    flex: 1;
-    min-height: 0;
-  }
-
-  /* ── Sidebar ── */
-  #sidebar {
-    width: var(--sidebar-w);
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 53px; /* header height */
-    height: calc(100vh - 53px);
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-  }
-
-  .sidebar-head {
-    padding: 1rem 1.2rem 0.7rem;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-
-  .sidebar-head-label {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    font-family: 'Outfit', sans-serif;
-    margin-bottom: 0.6rem;
-  }
-
-  #search-input {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 0.4rem 0.7rem;
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  #search-input::placeholder { color: var(--text-dim); }
-  #search-input:focus { border-color: var(--accent); }
-
-  #file-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .file-item {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.55rem 0.75rem;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    font-size: 0.85rem;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 400;
-    color: var(--text-muted);
-    word-break: break-all;
-    line-height: 1.3;
-  }
-  .file-item:hover { background: var(--surface2); color: var(--text); }
-  .file-item.active {
-    background: rgba(91, 138, 245, 0.12);
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .file-item.active .file-icon { color: var(--accent); }
-  .file-icon {
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    color: var(--text-dim);
-    font-style: normal;
-  }
-  .no-files {
-    padding: 1.5rem 1rem;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* add file form */
-  .sidebar-footer {
-    border-top: 1px solid var(--border);
-    padding: 0.75rem 1rem;
-    flex-shrink: 0;
-  }
-  .sidebar-footer-label {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 0.45rem;
-  }
-  .add-row {
-    display: flex;
-    gap: 0.4rem;
-  }
-  #add-filename {
-    flex: 1;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.35rem 0.6rem;
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.76rem;
-    outline: none;
-    transition: border-color 0.2s;
-    min-width: 0;
-  }
-  #add-filename::placeholder { color: var(--text-dim); }
-  #add-filename:focus { border-color: var(--accent); }
-  #add-btn {
-    background: var(--accent);
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.1rem;
-    line-height: 1;
-    padding: 0.35rem 0.55rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.15s;
-  }
-  #add-btn:hover { background: #4a78e0; }
-
-  /* ── Main content ── */
-  #content {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
   }
 
   main {
     max-width: 860px;
-    width: 100%;
     margin: 0 auto;
     padding: 2.5rem 2rem 6rem;
   }
@@ -292,21 +116,6 @@ window.MathJax = {
     font-size: 1rem;
   }
   #status.error { color: #f87171; }
-
-  /* empty state */
-  #empty-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 2rem;
-    gap: 1rem;
-    color: var(--text-dim);
-    text-align: center;
-  }
-  .empty-icon { font-size: 2.5rem; }
-  .empty-title { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
-  .empty-sub { font-size: 0.82rem; font-family: 'JetBrains Mono', monospace; }
 
   /* ── Rendered Markdown ── */
   #rendered {
@@ -420,6 +229,7 @@ window.MathJax = {
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
+  /* Mermaid diagrams */
   .mermaid-wrap {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -430,328 +240,122 @@ window.MathJax = {
     text-align: center;
   }
   .mermaid-wrap svg { max-width: 100%; height: auto; }
-
-  /* ── Mobile ── */
-  @media (max-width: 700px) {
-    #sidebar-toggle { display: block; }
-
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      z-index: 300;
-      transform: translateX(-100%);
-      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
-    }
-    #sidebar.open { transform: translateX(0); }
-
-    #overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 250;
-    }
-    #overlay.show { display: block; }
-
-    main { padding: 1.5rem 1rem 5rem; }
-  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo">MD<span>·</span>Viewer</div>
-  <span id="doc-title">— wybierz plik —</span>
-  <button id="sidebar-toggle" aria-label="Otwórz listę plików">☰</button>
+  <span id="doc-title">Statystyka.md</span>
 </header>
 
-<div id="overlay"></div>
-
-<div class="layout">
-
-  <!-- ── Sidebar ── -->
-  <nav id="sidebar" aria-label="Lista plików">
-    <div class="sidebar-head">
-      <div class="sidebar-head-label">Pliki</div>
-      <input id="search-input" type="text" placeholder="Szukaj…" autocomplete="off" spellcheck="false" />
-    </div>
-
-    <div id="file-list">
-      <div class="no-files">Brak plików.<br>Dodaj poniżej.</div>
-    </div>
-
-    <div class="sidebar-footer">
-      <div class="sidebar-footer-label">Dodaj plik</div>
-      <div class="add-row">
-        <input id="add-filename" type="text" placeholder="nazwa.md" autocomplete="off" spellcheck="false" />
-        <button id="add-btn" title="Dodaj">+</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ── Content ── -->
-  <div id="content">
-    <main>
-      <div id="empty-state">
-        <span class="empty-icon">📄</span>
-        <span class="empty-title">Nie wybrano pliku</span>
-        <span class="empty-sub">Wybierz plik z listy po lewej stronie</span>
-      </div>
-      <div id="status" style="display:none"></div>
-      <div id="rendered" style="display:none"></div>
-    </main>
-  </div>
-
-</div>
+<main>
+  <div id="status">Ładowanie…</div>
+  <div id="rendered" style="display:none"></div>
+</main>
 
 <script>
-// ── Config: wstępna lista plików .md na serwerze ──────────────────────────
-// Edytuj tę tablicę, żeby dopasować do plików na Twoim serwerze.
-// Możesz też dodawać pliki dynamicznie przez pole w dolnej części sidebara.
-const INITIAL_FILES = [
-  'Statystyka',
-  '10_Dynamika.md'
-];
-// ─────────────────────────────────────────────────────────────────────────
+  const FILE = 'Statystyka.md';
 
-// ── State ─────────────────────────────────────────────────────────────────
-let files = [];
-let activeFile = null;
+  // Track mermaid code blocks separately
+  const mermaidBlocks = [];
 
-// ── Load saved file list from localStorage ────────────────────────────────
-function loadSavedFiles() {
-  try {
-    const saved = localStorage.getItem('md-viewer-files');
-    if (saved) return JSON.parse(saved);
-  } catch (e) {}
-  return null;
-}
+  const renderer = new marked.Renderer();
 
-function saveFiles() {
-  try {
-    localStorage.setItem('md-viewer-files', JSON.stringify(files));
-  } catch (e) {}
-}
-
-function initFiles() {
-  const saved = loadSavedFiles();
-  if (saved && saved.length > 0) {
-    files = saved;
-  } else {
-    files = [...INITIAL_FILES];
-  }
-  // Ensure initial files are always present
-  for (const f of INITIAL_FILES) {
-    if (!files.includes(f)) files.unshift(f);
-  }
-}
-
-// ── Sidebar file list rendering ───────────────────────────────────────────
-function renderFileList(filter = '') {
-  const container = document.getElementById('file-list');
-  const lower = filter.toLowerCase();
-  const visible = files.filter(f => f.toLowerCase().includes(lower));
-
-  if (visible.length === 0) {
-    container.innerHTML = `<div class="no-files">${filter ? 'Brak wyników.' : 'Brak plików.<br>Dodaj poniżej.'}</div>`;
-    return;
+  // marked v9 HTML-escapes code before passing to renderer — undo that for mermaid
+  function unescapeHtml(str) {
+    return str
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'");
   }
 
-  container.innerHTML = visible.map(f => {
-    const active = f === activeFile ? ' active' : '';
-    return `<div class="file-item${active}" data-file="${f}">
-      <i class="file-icon">⬡</i>
-      <span>${f}</span>
-    </div>`;
-  }).join('');
+  renderer.code = (codeOrToken, langArg) => {
+    // marked v9 moze przekazac token obiekt jako pierwszy argument
+    let code, lang;
+    if (codeOrToken && typeof codeOrToken === 'object') {
+      code = codeOrToken.text ?? codeOrToken.raw ?? '';
+      lang = (codeOrToken.lang ?? langArg ?? '').trim();
+    } else {
+      code = codeOrToken ?? '';
+      lang = (langArg ?? '').trim();
+    }
 
-  container.querySelectorAll('.file-item').forEach(el => {
-    el.addEventListener('click', () => {
-      openFile(el.dataset.file);
-      closeSidebar();
-    });
-  });
-}
+    // Mermaid — placeholder, rendered after HTML is inserted
+    if (lang === 'mermaid') {
+      const id = `mermaid-${mermaidBlocks.length}`;
+      const rawCode = unescapeHtml(code);
+      mermaidBlocks.push({ id, code: rawCode });
+      return `<div class="mermaid-wrap"><div class="mermaid" id="${id}">${rawCode}</div></div>`;
+    }
+    const validLang = lang && hljs.getLanguage(lang) ? lang : 'plaintext';
+    const highlighted = hljs.highlight(code, { language: validLang }).value;
+    const badge = lang ? `<span class="lang-badge">${lang}</span>` : '';
+    return `<pre>${badge}<code class="hljs language-${validLang}">${highlighted}</code></pre>`;
+  };
 
-// ── Add file ──────────────────────────────────────────────────────────────
-function addFile(name) {
-  name = name.trim();
-  if (!name) return;
-  if (!name.endsWith('.md')) name += '.md';
-  if (files.includes(name)) {
-    openFile(name);
-    return;
-  }
-  files.push(name);
-  saveFiles();
-  renderFileList(document.getElementById('search-input').value);
-  openFile(name);
-}
+  marked.use({ breaks: false, gfm: true, renderer });
 
-// ── Mobile sidebar ────────────────────────────────────────────────────────
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('overlay').classList.remove('show');
-}
-
-document.getElementById('sidebar-toggle').addEventListener('click', () => {
-  const sb = document.getElementById('sidebar');
-  const ov = document.getElementById('overlay');
-  sb.classList.toggle('open');
-  ov.classList.toggle('show');
-});
-
-document.getElementById('overlay').addEventListener('click', closeSidebar);
-
-// ── Search ────────────────────────────────────────────────────────────────
-document.getElementById('search-input').addEventListener('input', e => {
-  renderFileList(e.target.value);
-});
-
-// ── Add button / enter ────────────────────────────────────────────────────
-document.getElementById('add-btn').addEventListener('click', () => {
-  const inp = document.getElementById('add-filename');
-  addFile(inp.value);
-  inp.value = '';
-});
-document.getElementById('add-filename').addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    const inp = document.getElementById('add-filename');
-    addFile(inp.value);
-    inp.value = '';
-  }
-});
-
-// ── Markdown rendering helpers ────────────────────────────────────────────
-const mermaidBlocks = [];
-
-const renderer = new marked.Renderer();
-
-function unescapeHtml(str) {
-  return str
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'");
-}
-
-renderer.code = (codeOrToken, langArg) => {
-  let code, lang;
-  if (codeOrToken && typeof codeOrToken === 'object') {
-    code = codeOrToken.text ?? codeOrToken.raw ?? '';
-    lang = (codeOrToken.lang ?? langArg ?? '').trim();
-  } else {
-    code = codeOrToken ?? '';
-    lang = (langArg ?? '').trim();
+  // Fix single backslash used as \\ in matrices (e.g. "\ " → "\\")
+  // Only inside math blocks to avoid touching markdown
+  function fixMatrixNewlines(math) {
+    // Replace "\ " or "\" followed by a letter/space/newline that isn't already \\
+    return math.replace(/(?<!\\)\\(?!\\)( |\n)/g, '\\\\ ');
   }
 
-  if (lang === 'mermaid') {
-    const id = `mermaid-${mermaidBlocks.length}`;
-    const rawCode = unescapeHtml(code);
-    mermaidBlocks.push({ id, code: rawCode });
-    return `<div class="mermaid-wrap"><div class="mermaid" id="${id}">${rawCode}</div></div>`;
-  }
-  const validLang = lang && hljs.getLanguage(lang) ? lang : 'plaintext';
-  const highlighted = hljs.highlight(code, { language: validLang }).value;
-  const badge = lang ? `<span class="lang-badge">${lang}</span>` : '';
-  return `<pre>${badge}<code class="hljs language-${validLang}">${highlighted}</code></pre>`;
-};
-
-marked.use({ breaks: false, gfm: true, renderer });
-
-function fixMatrixNewlines(math) {
-  return math.replace(/(?<!\\)\\(?!\\)( |\n)/g, '\\\\ ');
-}
-
-function protectMath(src) {
-  return src
-    .replace(/\$\$([\s\S]*?)\$\$/g, (_, m) => {
-      const fixed = fixMatrixNewlines(m);
-      return `\x00D\x00${btoa(unescape(encodeURIComponent(fixed)))}\x00`;
-    })
-    .replace(/\$([^\n$]+?)\$/g, (_, m) => {
-      return `\x00I\x00${btoa(unescape(encodeURIComponent(m)))}\x00`;
-    });
-}
-
-function restoreMath(html) {
-  return html
-    .replace(/\x00D\x00([A-Za-z0-9+/=]+)\x00/g, (_, b) => `$$${decodeURIComponent(escape(atob(b)))}$$`)
-    .replace(/\x00I\x00([A-Za-z0-9+/=]+)\x00/g,  (_, b) => `$${decodeURIComponent(escape(atob(b)))}$`);
-}
-
-// ── Open file ─────────────────────────────────────────────────────────────
-async function openFile(filename) {
-  activeFile = filename;
-  saveFiles(); // persist state
-
-  document.getElementById('doc-title').textContent = filename;
-  document.getElementById('empty-state').style.display = 'none';
-  document.title = filename.replace('.md', '') + ' — MD Viewer';
-
-  // Update hash for bookmarking
-  history.replaceState(null, '', `#${encodeURIComponent(filename)}`);
-
-  renderFileList(document.getElementById('search-input').value);
-
-  const status   = document.getElementById('status');
-  const rendered = document.getElementById('rendered');
-
-  rendered.style.display = 'none';
-  status.className = '';
-  status.textContent = 'Ładowanie…';
-  status.style.display = 'block';
-
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  try {
-    const res = await fetch(filename);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const src = await res.text();
-
-    mermaidBlocks.length = 0;
-    const html = restoreMath(marked.parse(protectMath(src)));
-
-    rendered.innerHTML = html;
-    status.style.display = 'none';
-    rendered.style.display = 'block';
-
-    if (window.__mermaid && mermaidBlocks.length > 0) {
-      await window.__mermaid.run({
-        nodes: document.querySelectorAll('.mermaid')
+  function protectMath(src) {
+    return src
+      .replace(/\$\$([\s\S]*?)\$\$/g, (_, m) => {
+        const fixed = fixMatrixNewlines(m);
+        return `\x00D\x00${btoa(unescape(encodeURIComponent(fixed)))}\x00`;
+      })
+      .replace(/\$([^\n$]+?)\$/g, (_, m) => {
+        return `\x00I\x00${btoa(unescape(encodeURIComponent(m)))}\x00`;
       });
-    }
-
-    if (window.MathJax?.typesetPromise) {
-      await MathJax.typesetPromise([rendered]);
-    }
-  } catch (err) {
-    status.textContent = `Nie udało się wczytać pliku „${filename}": ${err.message}`;
-    status.classList.add('error');
-    rendered.style.display = 'none';
   }
-}
 
-// ── Init ──────────────────────────────────────────────────────────────────
-initFiles();
-renderFileList();
-
-// Check URL hash for direct link
-const hash = decodeURIComponent(location.hash.slice(1));
-if (hash && hash.endsWith('.md')) {
-  if (!files.includes(hash)) {
-    files.push(hash);
-    saveFiles();
+  function restoreMath(html) {
+    return html
+      .replace(/\x00D\x00([A-Za-z0-9+/=]+)\x00/g, (_, b) => `$$${decodeURIComponent(escape(atob(b)))}$$`)
+      .replace(/\x00I\x00([A-Za-z0-9+/=]+)\x00/g,  (_, b) => `$${decodeURIComponent(escape(atob(b)))}$`);
   }
-  openFile(hash);
-} else if (files.length > 0) {
-  // Auto-open first file
-  openFile(files[0]);
-}
+
+  async function load() {
+    const status   = document.getElementById('status');
+    const rendered = document.getElementById('rendered');
+
+    try {
+      const res = await fetch(FILE);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const src  = await res.text();
+
+      mermaidBlocks.length = 0;
+      const html = restoreMath(marked.parse(protectMath(src)));
+
+      rendered.innerHTML = html;
+      status.style.display  = 'none';
+      rendered.style.display = 'block';
+
+      // Render mermaid diagrams
+      if (window.__mermaid && mermaidBlocks.length > 0) {
+        await window.__mermaid.run({
+          nodes: document.querySelectorAll('.mermaid')
+        });
+      }
+
+      // Render math
+      if (window.MathJax?.typesetPromise) {
+        await MathJax.typesetPromise([rendered]);
+      }
+    } catch (err) {
+      status.textContent = `Nie udało się wczytać pliku „${FILE}": ${err.message}`;
+      status.classList.add('error');
+    }
+  }
+
+  load();
 </script>
 </body>
 </html>
