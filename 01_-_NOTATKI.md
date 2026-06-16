@@ -49,7 +49,10 @@ $n_i$, gdzie $\sum n_i = n$.
 
 Tabela z przedziałami klasowymi $[x_{i-1}, x_i)$ i liczebnościami
 $n_i$.  
-Środek $i$-tego przedziału: $x'_i = \frac{x_i + x_{i-1}}{2}$
+Środek $i$-tego przedziału: 
+```math
+x'_i = \frac{x_i + x_{i-1}}{2}$
+```
 
 > **W praktyce (plik .xlsx):** Masz kolumnę z wartościami → szereg
 > szczegółowy. Masz kolumnę z przedziałami i kolumnę z liczebnościami →
