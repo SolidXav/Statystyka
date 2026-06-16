@@ -1,84 +1,63 @@
----
-engines:
-- path: "C:`\\Users\\xaver\\AppData\\Local\\Programs\\Quarto\\share\\extension`{=tex}``{=tex}``{=tex}``{=tex}``{=tex}``{=tex}``{=tex}``{=tex}-subtrees`\\julia`{=tex}-engine_extensions`\\julia`{=tex}-engine`\\julia`{=tex}-engine.js"
-title: Kolokwium R
-toc-title: Table of contents
----
+# Kolokwium
+Xav
 
 Wczytaj potrzebne pakiety
 
-::: cell
-``` {.r .cell-code}
+``` r
 library(readxl)
-library(DescTools)
+## library(DescTools)
 ```
-:::
 
 Usuń wszystkie obiekty
 
-::: cell
-``` {.r .cell-code}
+``` r
 remove(list = ls())
 ```
-:::
 
 Wczytaj dane z pliku bael.xlsx
 
-::: cell
-``` {.r .cell-code}
+``` r
 bael <- read_xlsx("../dane-surowe/bael.xlsx")
 head(bael)
 ```
-:::
 
 Skonstruuj tabelę kontyngencji dla poziomu wykształcenia (WYKSZ) i
 statusu na rynku pracy (KAT)
 
-::: cell
-``` {.r .cell-code}
+``` r
 x <- bael$WYKSZ
 y <- bael$KAT
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 # rozkład WYKSZ
 table(x)
 prop.table(table(x))
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 # rozkład KAT
 table(y)
 prop.table(table(y))
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 # łączny rozkład WYKSZ i KAT
 table(x, y) # tabela kontyngencji
 prop.table(table(x, y))
 prop.table(table(x, y), margin = 1)
 prop.table(table(x, y), margin = 2)
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 mosaicplot(table(x,y), color = c("green", "red", "blue"))
 ```
-:::
 
 Napisz funkcję do wyznaczania statystyki chi-kwadrat w oparciu o wektory
 x, y
 $$\chi^2 = \sum_{i=1}^w\sum_{j=1}^k \frac{(n_{ij}-\hat{n}_{ij})^2}{\hat{n}_{ij}}$$
 
-::: cell
-``` {.r .cell-code}
+``` r
 chi2 <- function(x, y) {
   
   nij <- table(x,y)
@@ -91,29 +70,23 @@ chi2 <- function(x, y) {
   
 }
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 chi2(x, y)
 ```
-:::
 
 Wyznacz wartość statystyki chi-kwadrat za pomocą funkcji chisq.test
 
-::: cell
-``` {.r .cell-code}
+``` r
 test <- chisq.test(x = x, y = y)
 test$statistic
 test$observed # tabela kontyngencji - liczebności empiryczne
 test$expected # liczebności teoretyczne
 ```
-:::
 
 Sprawdź własności liczebności teoretycznych
 
-::: cell
-``` {.r .cell-code}
+``` r
 colSums(test$expected)
 rowSums(test$expected)
 #liczebności brzegowe odpowiadają obserwowanym 
@@ -122,15 +95,13 @@ prop.table(test$expected, margin = 1)
 prop.table(test$expected, margin = 2)
 # takie same struktury wszystkich wierszy i wszystkich kolumn
 ```
-:::
 
 Wyzna miary współzależności pomiędzy poziomem wykształcenia a statusem
 na rynku pracy
 $$T = \sqrt{\frac{\chi^2}{n\sqrt{(w-1)(k-1)}}}, \quad V =\sqrt{\frac{\chi^2}{n\cdot min(w-1, k-1)}}$$
 $$C = \sqrt{\frac{\chi^2}{\chi^2+n}}, \quad C_{kor} = \frac{C}{C_{max}}, \quad C_{max} = \frac{\sqrt{\frac{w-1}{w}}+\sqrt{\frac{k-1}{k}}}{2}$$
 
-::: cell
-``` {.r .cell-code}
+``` r
 # ze wzoru
 chi2_value <- chi2(x, y)
 n <- length(x)
@@ -154,14 +125,11 @@ C_kor
 
 # Pomiędzy badanymi cechami występuje umiarkowana współzależność
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 # za pomocą pakietu DescTools
 TschuprowT(x = x , y = y)
 CramerV(x = x, y = y)
 ContCoef(x = x, y = y)
 ContCoef(x = x, y = y, correct = TRUE)
 ```
-:::
