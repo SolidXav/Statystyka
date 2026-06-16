@@ -49,7 +49,8 @@ $n_i$, gdzie $\sum n_i = n$.
 
 Tabela z przedziałami klasowymi $[x_{i-1}, x_i)$ i liczebnościami
 $n_i$.  
-Środek $i$-tego przedziału: $x'_i = \frac{x_i + x_{i-1}}{2}$
+Środek $i$-tego przedziału: 
+$$x'_i = \dfrac{x_i + x_{i-1}}{2}$$
 
 > **W praktyce (plik .xlsx):** Masz kolumnę z wartościami → szereg
 > szczegółowy. Masz kolumnę z przedziałami i kolumnę z liczebnościami →
@@ -128,10 +129,14 @@ Miara pozycyjna, odporna na wartości odstające.
 ### Wzór
 
 **Szereg szczegółowy / punktowy:**
-$$Me = \begin{cases} x_{\lfloor n/2 \rfloor + 1} & \text{gdy } n \text{ nieparzyste} \\ \dfrac{x_{n/2} + x_{n/2+1}}{2} & \text{gdy } n \text{ parzyste} \end{cases}$$
+$$
+Me = \begin{cases} x_{\lfloor n/2 \rfloor + 1} & \text{gdy } n \text{ nieparzyste} \\ \dfrac{x_{n/2} + x_{n/2+1}}{2} & \text{gdy } n \text{ parzyste} \end{cases}
+$$
 
 **Szereg strukturalny przedziałowy (interpolacja):**
-$$Me = x_{Me} + \frac{\dfrac{1}{2}n - \sum_{i=1}^{k_{Me}-1} n_i}{n_{Me}} \cdot c_{Me}$$
+$$
+Me = x_{Me} + \frac{\dfrac{1}{2}n - \sum_{i=1}^{k_{Me}-1} n_i}{n_{Me}} \cdot c_{Me}
+$$
 
 gdzie:
 
