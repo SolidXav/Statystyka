@@ -5,7 +5,7 @@ Wczytaj potrzebne pakiety
 
 ``` r
 library(readxl)
-## library(DescTools)
+library(DescTools)
 ```
 
 Usuń wszystkie obiekty
