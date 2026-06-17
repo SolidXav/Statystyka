@@ -1,7 +1,5 @@
 # 📊 Analiza Współzależności Cech Ilościowych — Notatki na Kolokwium
 
-> **Temat:** Korelacja | **Kurs:** Analiza Danych w R | Uniwersytet Ekonomiczny w Poznaniu
-
 ---
 
 ## Spis treści
