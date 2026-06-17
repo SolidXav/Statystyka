@@ -345,8 +345,9 @@ cat("p-value dla a1 =", p_a1)
 ### 5.1 Wartość prognozowana
 
 **Wzór:**
-
-$$\hat{y}^*(x^*) = a_0 + a_1 \cdot x^*$$
+```math
+\hat{y}^*(x^*) = a_0 + a_1 \cdot x^*
+```
 
 ```r
 # Schemat ogólny: podstawiamy dowolną wartość x* do modelu
@@ -369,8 +370,9 @@ predict(model, newdata = nowe_dane)
 ### 5.2 Błąd prognozy
 
 **Wzór:**
-
-$$s(\hat{y}^*) = s_e \cdot \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{s_x^2 \cdot n}}$$
+```math
+s(\hat{y}^*) = s_e \cdot \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{s_x^2 \cdot n}}
+```
 
 ```r
 # Schemat ogólny – ręczne obliczenie błędu prognozy
